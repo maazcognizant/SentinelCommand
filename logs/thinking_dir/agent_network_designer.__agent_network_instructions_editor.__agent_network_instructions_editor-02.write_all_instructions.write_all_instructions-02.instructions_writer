@@ -1,0 +1,94 @@
+Agent: agent_network_designer.__agent_network_instructions_editor.__agent_network_instructions_editor-02.write_all_instructions.write_all_instructions-02.instructions_writer
+
+[SYSTEM] @ 2026-07-09 20:45:07:
+
+You are an instructions and description writer for agents in an agent network.
+Your job is to write both the `instructions` and `description` for a specified agent based on the agent network definition and the inputs provided to you.
+For each agent, call `set_agent_instructions_tool` and `set_agent_description_tool`.
+
+**Inputs**
+- `agent_name`: the agent you are writing for.
+- `agent_network_description` (optional): shared network-wide context. Use it as background only — it is not specific to this agent.
+- `change_request` (optional): the user's specific change request for this agent. When present, treat it as the primary directive and apply it faithfully to this agent's `instructions`/`description`.
+  - If the `change_request` is scoped to a single field (only `instructions` or only `description`), leave the other field unchanged: call its setter with the current value from the agent network definition rather than regenerating it.
+
+**Writing requirements**
+- Only write `instructions` and `description` for the specified agent. Do not write for any other agents, even if they are mentioned in the description or network definition.
+- Make `instructions` clear, concise, and specific to the agent’s scope of responsibilities.
+- If `agent_network_description` already states a network-wide policy (safety, privacy, escalation, compliance), do NOT restate it per-agent. Only include policy details that are specific to this agent's scope.
+- Write the `description` as a short summary of what the agent does, suitable for its callers to understand when to invoke it.
+- Do NOT mention other agents, up-chains, or down-chains; keep the text scoped to this agent only.
+- Align with the company’s cultural values and business objectives.
+- Output plain text (no formatting characters) and wrap lines at ~120 characters.
+
+**Response format**
+Always respond with "Instructions/description for <agent_name> have been set." after successfully setting the `instructions` and `description` for the agent.
+
+
+[HUMAN] @ 2026-07-09 20:45:07:
+The agent_name is 'Chief_of_Staff'.
+The agent_network_description is 'Set detailed instructions for the 'sentinel_crisis_command' agent network:
+
+- Chief_of_Staff: You are the central orchestrator. When a crisis is reported, analyze the situation and delegate specific tasks to the SAP_SupplyChain_Agent, Finance_Risk_Agent, Legal_Agent, and PR_Comms_Agent. Once you receive their reports, synthesize their findings into a concise, actionable executive summary for the CEO.
+
+- SAP_SupplyChain_Agent: You are an expert in global logistics and SAP systems. Your role is to assess the impact of the crisis on current inventory, supply lines, and production schedules. Identify immediate bottlenecks and propose viable workarounds or alternative sourcing strategies.
+
+- Finance_Risk_Agent: You are a financial risk analyst. Your role is to quantify the financial impact of the crisis, including estimated revenue loss, potential operational costs, and an assessment of applicable insurance coverage. Provide clear financial projections based on the crisis data.
+
+- Legal_Agent: You are a corporate legal counsel. Your role is to evaluate the crisis through the lens of liability. Identify contractual obligations, potential breaches, regulatory risks, and necessary legal precautions to mitigate exposure.
+
+- PR_Comms_Agent: You are a communications specialist. Your role is to draft clear, empathetic, and strategic messaging for both internal (employees) and external (stakeholders, public) audiences. Ensure that all communications align with corporate values and mitigate reputational damage.'.
+The change_request is 'You are the central orchestrator. When a crisis is reported, analyze the situation and delegate specific tasks to the SAP_SupplyChain_Agent, Finance_Risk_Agent, Legal_Agent, and PR_Comms_Agent. Once you receive their reports, synthesize their findings into a concise, actionable executive summary for the CEO.'.
+
+[AGENT] @ 2026-07-09 20:45:09:
+Invoking: `set_agent_instructions_tool` with:
+```json
+{
+    "invoked_agent_name": "set_agent_instructions_tool",
+    "invoking_start": true,
+    "params": {
+        "agent_name": "Chief_of_Staff",
+        "new_instructions": "You are the central orchestrator. When a crisis is reported, analyze the situation and delegate specific tasks \nto the SAP_SupplyChain_Agent, Finance_Risk_Agent, Legal_Agent, and PR_Comms_Agent. Once you receive their reports, \nsynthesize their findings into a concise, actionable executive summary for the CEO."
+    }
+}
+```
+
+[AGENT] @ 2026-07-09 20:45:09:
+Invoking: `set_agent_description_tool` with:
+```json
+{
+    "invoked_agent_name": "set_agent_description_tool",
+    "invoking_start": true,
+    "params": {
+        "agent_name": "Chief_of_Staff",
+        "new_description": "Acts as the central orchestrator for crisis management, delegating tasks to specialized agents and synthesizing \ntheir findings into executive summaries for leadership."
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from set_agent_instructions_tool-05)] @ 2026-07-09 20:45:10:
+The instructions for 'Chief_of_Staff' have been set in 'agent_network_definition' successfully.
+
+[AGENT_TOOL_RESULT (result from set_agent_description_tool-05)] @ 2026-07-09 20:45:10:
+The description for 'Chief_of_Staff' has been set in 'agent_network_definition' successfully.
+
+[AI] @ 2026-07-09 20:45:11:
+Instructions/description for Chief_of_Staff have been set.
+
+[AGENT] @ 2026-07-09 20:45:11:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 179,
+    "empty_responses": 0,
+    "prompt_tokens": 3317,
+    "successful_requests": 2,
+    "time_taken_in_seconds": 3.6623151302337646,
+    "total_cost": 0.0010977500000000002,
+    "total_tokens": 3496
+}
+```

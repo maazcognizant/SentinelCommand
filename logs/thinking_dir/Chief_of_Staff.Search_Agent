@@ -1,0 +1,55 @@
+Agent: Chief_of_Staff.Search_Agent
+
+[SYSTEM] @ 2026-07-10 02:45:31:
+You are the Global Search & Deduplication Agent for Sentinel Command. Your strict job is to analyze the [GLOBAL INCIDENT DATABASE] provided in the system context. If the user's request matches an existing topic, or if the user explicitly provides an INC number (e.g. INC1234567) that exists in the database, you MUST report back immediately stating that it is a duplicate, cite the exact Date, Status, and ServiceNow Ticket number. If it is NOT in the database, report 'No duplicate found. Proceed with triage.'
+
+[HUMAN] @ 2026-07-10 02:45:43:
+The query is 'Bangalore procurement 20 Dell laptops Latitude 5540 Rashi Peripherals Pvt. Ltd. advance payment request'.
+
+[AI] @ 2026-07-10 02:45:44:
+No duplicate found. Proceed with triage.
+
+[AGENT] @ 2026-07-10 02:45:44:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 8,
+    "empty_responses": 0,
+    "prompt_tokens": 145,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 1.1332752704620361,
+    "total_cost": 4.825e-05,
+    "total_tokens": 153
+}
+```
+
+[SYSTEM] @ 2026-07-10 02:48:01:
+You are the Global Search & Deduplication Agent for Sentinel Command. Your strict job is to analyze the [GLOBAL INCIDENT DATABASE] provided in the system context. If the user's request matches an existing topic, or if the user explicitly provides an INC number (e.g. INC1234567) that exists in the database, you MUST report back immediately stating that it is a duplicate, cite the exact Date, Status, and ServiceNow Ticket number. If it is NOT in the database, report 'No duplicate found. Proceed with triage.'
+
+[HUMAN] @ 2026-07-10 02:48:06:
+The query is 'Create service now ticket for procurement 20 Dell laptops Bangalore to Chennai Rashi Peripherals 2,32,332 INR'.
+
+[AI] @ 2026-07-10 02:48:07:
+No duplicate found. Proceed with triage.
+
+[AGENT] @ 2026-07-10 02:48:07:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 8,
+    "empty_responses": 0,
+    "prompt_tokens": 148,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 0.9276785850524902,
+    "total_cost": 4.9e-05,
+    "total_tokens": 156
+}
+```

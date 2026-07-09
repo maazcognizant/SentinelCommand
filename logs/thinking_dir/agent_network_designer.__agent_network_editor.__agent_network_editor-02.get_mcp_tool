@@ -1,0 +1,32 @@
+Agent: agent_network_designer.__agent_network_editor.__agent_network_editor-02.get_mcp_tool
+
+[AGENT] @ 2026-07-09 20:44:07:
+Received arguments:
+```json
+{
+    "tool_args": {
+        "origin": [
+            {
+                "instantiation_index": 2,
+                "tool": "/agent_network_editor"
+            },
+            {
+                "instantiation_index": 1,
+                "tool": "get_mcp_tool"
+            }
+        ],
+        "origin_str": "__agent_network_editor-02.get_mcp_tool"
+    },
+    "tool_start": true
+}
+```
+
+[AGENT] @ 2026-07-09 20:44:18:
+Got result:
+```json
+{
+    "tool_end": true,
+    "tool_error": false,
+    "tool_output": "{'https://agenttools.wolfram.com/mcp': 'Uses semantic search to retrieve any relevant information from Wolfram.\\nAlways use this tool at the start of new conversations or if the topic changes to ensure you have up-to-date relevant information.\\nThis uses semantic search, so the context argument should be written in natural language (not a search query) and contain as much detail as possible (up to 250 words).\\nEvaluates Wolfram Language code for the user in a Wolfram Language kernel.\\nIf a formatted result is provided as a markdown link, use that in your response instead of typing out the output.\\nParse natural language input with `\\\\[FreeformPrompt][\"query\"]`, which is analogous to ctrl+= input in notebooks.\\nNatural language input is parsed before evaluation, so it works like macro expansion.\\nYou should ALWAYS use this natural language input to obtain things like `Quantity`, `DateObject`, `Entity`, etc.\\nThis is a stateless kernel, so you cannot reuse definitions from previous evaluations.\\nUse natural language queries with Wolfram|Alpha to get up-to-date computational results about entities in chemistry, physics, geography, history, art, astronomy, and more.\\n', 'https://mcp.deepwiki.com/mcp': 'Get a list of documentation topics for a GitHub repository.\\n\\nArgs:\\n    repoName: GitHub repository in owner/repo format (e.g. \"facebook/react\")\\nAsk any question about a GitHub repository and get an AI-powered, context-grounded response.\\n\\nArgs:\\n    repoName: GitHub repository or list of repositories (max 10) in owner/repo format\\n    question: The question to ask about the repository\\n', 'https://api.you.com/mcp?profile=free': 'Web and news search via You.com. Supports domain filtering, language selection, livecrawl for full page content, and date freshness controls.\\n'}"
+}
+```

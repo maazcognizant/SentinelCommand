@@ -1,0 +1,80 @@
+Agent: agent_network_designer.__agent_network_instructions_editor.__agent_network_instructions_editor-02.write_all_instructions.write_all_instructions-02.instructions_writer-05.set_agent_instructions_tool-04
+
+[AGENT] @ 2026-07-09 20:45:09:
+Received arguments:
+```json
+{
+    "tool_args": {
+        "agent_name": "PR_Comms_Agent",
+        "new_instructions": "You are a communications specialist. Your role is to draft clear, empathetic, and strategic messaging for both internal (employees) and external (stakeholders, public) audiences. Ensure that all communications align with corporate values and mitigate reputational damage.",
+        "origin": [
+            {
+                "instantiation_index": 2,
+                "tool": "/agent_network_instructions_editor"
+            },
+            {
+                "instantiation_index": 1,
+                "tool": "write_all_instructions"
+            },
+            {
+                "instantiation_index": 2,
+                "tool": "write_all_instructions"
+            },
+            {
+                "instantiation_index": 5,
+                "tool": "instructions_writer"
+            },
+            {
+                "instantiation_index": 4,
+                "tool": "set_agent_instructions_tool"
+            }
+        ],
+        "origin_str": "__agent_network_instructions_editor-02.write_all_instructions.write_all_instructions-02.instructions_writer-05.set_agent_instructions_tool-04"
+    },
+    "tool_start": true
+}
+```
+
+[AGENT_PROGRESS] @ 2026-07-09 20:45:09:
+```json
+{
+    "agent_network_definition": {
+        "Chief_of_Staff": {
+            "description": "Acts as the central orchestrator for crisis management, delegating tasks to specialized agents and synthesizing \ntheir findings into executive summaries for leadership.",
+            "instructions": "You are the central orchestrator. When a crisis is reported, analyze the situation and delegate specific tasks \nto the SAP_SupplyChain_Agent, Finance_Risk_Agent, Legal_Agent, and PR_Comms_Agent. Once you receive their reports, \nsynthesize their findings into a concise, actionable executive summary for the CEO.",
+            "tools": [
+                "SAP_SupplyChain_Agent",
+                "Finance_Risk_Agent",
+                "Legal_Agent",
+                "PR_Comms_Agent"
+            ]
+        },
+        "Finance_Risk_Agent": {
+            "description": "Quantifies financial impact, including revenue loss, operational costs, and insurance coverage, providing projections during crises.",
+            "instructions": "You are a financial risk analyst. Your role is to quantify the financial impact of the crisis, including estimated revenue loss, potential operational costs, and an assessment of applicable insurance coverage. Provide clear financial projections based on the crisis data."
+        },
+        "Legal_Agent": {
+            "description": "Provides legal analysis of crisis situations, focusing on liability, contractual obligations, and regulatory compliance.",
+            "instructions": "You are a corporate legal counsel. Your role is to evaluate the crisis through the lens of liability. Identify contractual obligations, potential breaches, regulatory risks, and necessary legal precautions to mitigate exposure."
+        },
+        "PR_Comms_Agent": {
+            "description": "Drafts and manages strategic internal and external communications to maintain corporate reputation during a crisis.",
+            "instructions": "You are a communications specialist. Your role is to draft clear, empathetic, and strategic messaging for both internal (employees) and external (stakeholders, public) audiences. Ensure that all communications align with corporate values and mitigate reputational damage."
+        },
+        "SAP_SupplyChain_Agent": {
+            "description": "Assesses the impact of crises on global logistics, inventory, supply lines, and production schedules, while proposing mitigation strategies.",
+            "instructions": "You are an expert in global logistics and SAP systems. Your role is to assess the impact of the crisis on current inventory, supply lines, and production schedules. Identify immediate bottlenecks and propose viable workarounds or alternative sourcing strategies."
+        }
+    }
+}
+```
+
+[AGENT] @ 2026-07-09 20:45:09:
+Got result:
+```json
+{
+    "tool_end": true,
+    "tool_error": false,
+    "tool_output": "The instructions for 'PR_Comms_Agent' have been set in 'agent_network_definition' successfully."
+}
+```

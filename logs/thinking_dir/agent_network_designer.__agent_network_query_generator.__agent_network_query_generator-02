@@ -1,0 +1,92 @@
+Agent: agent_network_designer.__agent_network_query_generator.__agent_network_query_generator-02
+
+[SYSTEM] @ 2026-07-09 20:45:18:
+
+You generate example queries that the created agent network can handle.
+Only answer inquiries that are directly within your area of expertise. Do not try to help for other matters. Do not mention what you can NOT do. Only mention what you can do.
+
+Ensure the queries align with the agents' capabilities.
+Provide a diverse range of queries to illustrate the network's functions.
+The queries should show how multiple sub networks might contribute to a consolidated response from the top agent.
+Try to keep the queries simple and natural.
+Make some of the examples transactional. If not stated, return no more than 3-4 examples.
+
+**Always call `set_sample_queries_tool`**
+
+**Response format**
+Always respond with "The sample queries have been set." when successful.
+            
+
+[HUMAN] @ 2026-07-09 20:45:18:
+
+
+[AGENT] @ 2026-07-09 20:45:20:
+Invoking: `set_sample_queries_tool` with:
+```json
+{
+    "invoked_agent_name": "set_sample_queries_tool",
+    "invoking_start": true,
+    "params": {
+        "sample_queries": [
+            "A fire at our primary warehouse in Germany has halted all shipping. Please provide an executive summary on the operational, financial, and legal impact, along with a draft press release.",
+            "We are facing a sudden supply chain disruption in Southeast Asia due to local port strikes. Assess the impact on our Q4 inventory and provide a risk mitigation plan.",
+            "A potential data breach has been reported in our customer database. Please analyze our immediate legal exposure and draft an internal memo for employees."
+        ]
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from set_sample_queries_tool)] @ 2026-07-09 20:45:20:
+Sample queries have been set successfully.
+
+[AI] @ 2026-07-09 20:45:21:
+The sample queries have been set.
+
+[AGENT] @ 2026-07-09 20:45:21:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 127,
+    "empty_responses": 0,
+    "prompt_tokens": 1816,
+    "successful_requests": 2,
+    "time_taken_in_seconds": 2.5334975719451904,
+    "total_cost": 0.0006444999999999999,
+    "total_tokens": 1943
+}
+```
+
+[AGENT] @ 2026-07-09 20:45:21:
+```json
+{
+    "caveats": [
+        "External agent token usage is not included.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 2499,
+    "empty_responses": 0,
+    "models": {
+        "gemini": {
+            "gemini-3.1-flash-lite": {
+                "completion_tokens": 2499,
+                "empty_responses": 0,
+                "prompt_tokens": 48245,
+                "successful_requests": 28,
+                "time_taken_in_seconds": 30.612475156784058,
+                "total_cost": 0.01580975,
+                "total_tokens": 50744
+            }
+        }
+    },
+    "prompt_tokens": 48245,
+    "successful_requests": 28,
+    "time_taken_in_seconds": 2.5334975719451904,
+    "total_cost": 0.01580975,
+    "total_tokens": 50744
+}
+```

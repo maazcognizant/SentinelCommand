@@ -1,0 +1,37 @@
+Agent: agent_network_designer.__agent_network_query_generator.__agent_network_query_generator-02.set_sample_queries_tool
+
+[AGENT] @ 2026-07-09 20:45:20:
+Received arguments:
+```json
+{
+    "tool_args": {
+        "origin": [
+            {
+                "instantiation_index": 2,
+                "tool": "/agent_network_query_generator"
+            },
+            {
+                "instantiation_index": 1,
+                "tool": "set_sample_queries_tool"
+            }
+        ],
+        "origin_str": "__agent_network_query_generator-02.set_sample_queries_tool",
+        "sample_queries": [
+            "A fire at our primary warehouse in Germany has halted all shipping. Please provide an executive summary on the operational, financial, and legal impact, along with a draft press release.",
+            "We are facing a sudden supply chain disruption in Southeast Asia due to local port strikes. Assess the impact on our Q4 inventory and provide a risk mitigation plan.",
+            "A potential data breach has been reported in our customer database. Please analyze our immediate legal exposure and draft an internal memo for employees."
+        ]
+    },
+    "tool_start": true
+}
+```
+
+[AGENT] @ 2026-07-09 20:45:20:
+Got result:
+```json
+{
+    "tool_end": true,
+    "tool_error": false,
+    "tool_output": "Sample queries have been set successfully."
+}
+```
