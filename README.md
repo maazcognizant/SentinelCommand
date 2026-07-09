@@ -63,12 +63,10 @@ The system operates on a decoupled client-server architecture, deeply integratin
 
 To fully visualize the dual-layer architecture, please refer to the screenshots below.
 
-> Note for maintainers: Please replace the placeholder paths below with actual screenshots of the system in action.
-
 **1. Neuro SAN Visualizer (Backend Orchestration)**
-*(Insert screenshot of the Neuro AI Multi-Agent Accelerator Client showing the node graph with the Chief of Staff and the Search Agent)*
-`![Neuro SAN Node Graph](./docs/images/neuro_san_backend.png)`
+*(Neuro AI Multi-Agent Accelerator Client showing the node graph with the Chief of Staff and the Search Agent)*
+![Neuro SAN Node Graph](./docs/images/neuro_san_backend.png)
 
 **2. Sentinel Command Interface (Frontend Execution)**
-*(Insert screenshot of the React frontend showing the Executive Action Summary, Severity Meter, and ServiceNow ticket generation)*
-`![Sentinel UI Frontend](./docs/images/sentinel_frontend.png)`
+*(React frontend showing the Executive Action Summary, Severity Meter, and ServiceNow ticket generation)*
+![Sentinel UI Frontend](./docs/images/sentinel_frontend.png)
