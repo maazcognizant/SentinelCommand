@@ -2,7 +2,7 @@
 
 ## Enterprise AI Crisis Intelligence Platform
 
-A Neuro SAN-powered multi-agent platform that transforms enterprise incident management through parallel AI reasoning, intelligent orchestration, and executive decision support.
+A Neuro SAN-powered multi-agent platform that helps organizations manage incidents, approvals, and critical business decisions through parallel AI reasoning, intelligent orchestration, and executive decision support.
 
 ---
 
@@ -16,6 +16,8 @@ A Neuro SAN-powered multi-agent platform that transforms enterprise incident man
 - Intelligent Incident Routing
 - Duplicate Incident Detection
 - Real-Time WebSocket Communication
+- Vendor Approval Workflows
+- Severity Classification
 - ServiceNow & SAP Ready
 - Designed for Enterprise Scale
 
@@ -23,47 +25,54 @@ A Neuro SAN-powered multi-agent platform that transforms enterprise incident man
 
 ## Overview
 
-Enterprise incidents rarely impact just one department.
+Sentinel Command Center is an enterprise AI decision intelligence platform built on the Neuro SAN framework.
 
-A cybersecurity attack, compliance violation, operational outage, or supply chain disruption can simultaneously affect Cybersecurity, Finance, Legal, HR, Operations, and Executive Leadership.
+The platform enables organizations to assess, coordinate, and respond to business incidents and operational requests through a network of specialized AI agents.
 
-Sentinel Command Center uses Neuro SAN to orchestrate specialized AI agents that analyze incidents in parallel and generate a unified executive action plan within seconds.
+Users can submit:
 
-Instead of manual coordination across departments, leaders receive a consolidated recommendation from a collaborative AI workforce.
+- Security incidents
+- Vendor approval requests
+- Procurement reviews
+- Compliance escalations
+- Operational disruptions
+- Risk assessments
+- Executive decision requests
+
+Instead of manually involving multiple departments, Sentinel automatically routes requests to specialized agents that analyze impacts in parallel and generate a unified recommendation.
 
 ---
 
 ## Why Sentinel?
 
-Traditional Enterprise Response
+Traditional enterprise workflows are often:
 
-- Manual coordination
-- Department silos
-- Sequential reviews
-- Delayed decisions
-- Fragmented visibility
+- Manual
+- Department-centric
+- Sequential
+- Slow to escalate
+- Difficult to coordinate
 
-Sentinel Command Center
+Sentinel provides:
 
 - Multi-agent orchestration
 - Parallel reasoning
-- Enterprise-wide intelligence
-- Real-time recommendations
-- Executive visibility
+- Enterprise-wide visibility
+- Faster decision-making
+- Executive-ready recommendations
 
 ---
 
 ## Neuro SAN Implementation
 
-Sentinel is built around Neuro SAN's core capabilities:
+Sentinel leverages Neuro SAN capabilities including:
 
 - Agent Orchestration
 - Agent Delegation
 - Parallel Execution
-- Modular Registries
-- Specialized Agent Networks
 - Shared Context Management
-- Extensible Architecture
+- Modular Registries
+- Scalable Multi-Agent Architecture
 
 ### Agent Network
 
@@ -71,13 +80,13 @@ Sentinel is built around Neuro SAN's core capabilities:
 |---------|---------------|
 | Chief of Staff | Workflow orchestration |
 | Search Agent | Duplicate detection |
-| Cyber Agent | Security impact |
-| Finance Agent | Financial exposure |
-| Legal Agent | Compliance analysis |
+| Cyber Agent | Security analysis |
+| Finance Agent | Financial impact |
+| Legal Agent | Compliance review |
 | HR Agent | Workforce impact |
 | Operations Agent | Business continuity |
-| Supply Chain Agent | Vendor dependency analysis |
-| PR Agent | Reputation assessment |
+| Supply Chain Agent | Vendor impact |
+| PR Agent | Reputation analysis |
 | Executive Synthesizer | Final recommendation |
 
 ---
@@ -95,23 +104,20 @@ WebSocket Layer
        ▼
 Neuro SAN Backend
        │
-Chief of Staff
+Chief of Staff Agent
        │
  ┌─────┼─────┐
  │     │     │
  ▼     ▼     ▼
-
-Cyber Finance Legal
-HR Operations Supply Chain
-PR Search
-
+Specialized Domain Agents
+(Cyber, Finance, Legal,
+HR, Operations, Supply Chain,
+PR, Search)
        │
        ▼
-
 Executive Synthesizer
        │
        ▼
-
 Executive Action Plan
 ```
 
@@ -119,15 +125,45 @@ Executive Action Plan
 
 ## How It Works
 
-1. Executive submits an incident.
-2. Historical incident memory is retrieved.
-3. Chief of Staff receives the request.
+1. User submits an incident or business request.
+2. Historical memory is retrieved.
+3. Chief of Staff Agent receives the request.
 4. Search Agent checks for duplicates.
 5. Relevant agents execute in parallel.
 6. Findings are aggregated.
 7. Executive Synthesizer generates recommendations.
-8. Dashboard displays severity, impact, and actions.
-9. Executive approves, escalates, or creates a ticket.
+8. Dashboard displays severity, impact, and suggested actions.
+9. User approves, rejects, or escalates the request.
+
+---
+
+## Frontend Experience
+
+The Command Center allows users to:
+
+- Submit incidents and requests
+- Request vendor approvals
+- Initiate procurement reviews
+- View AI-generated recommendations
+- Monitor severity levels
+- Review department assessments
+- Track historical incidents
+- Approve or escalate actions
+
+Real-time updates are delivered through WebSocket communication between the frontend and Neuro SAN backend.
+
+---
+
+## Enterprise Use Cases
+
+- Security Incident Management
+- Vendor Approval Workflows
+- Procurement Reviews
+- Compliance Assessments
+- Operational Risk Analysis
+- Business Continuity Planning
+- Executive Escalations
+- Cross-Department Decision Support
 
 ---
 
@@ -154,6 +190,7 @@ Executive Action Plan
 | Backend | Python |
 | AI Framework | Neuro SAN |
 | Communication | WebSocket |
+| LLM Providers | Gemini, Mistral AI |
 | Future Integrations | ServiceNow, SAP, Microsoft Graph |
 
 ---
@@ -168,16 +205,64 @@ Executive Action Plan
 - Duplicate detection
 - Severity classification
 - Executive recommendations
-- WebSocket communication
+- Real-time communication
 
 ### Planned
 
 - ServiceNow integration
 - SAP integration
 - Microsoft Graph integration
-- Teams and Slack support
+- Microsoft Teams support
+- Slack support
 - Voice interface
 - Autonomous remediation
+
+---
+
+## Environment Configuration
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+MISTRAL_API_KEY=your_mistral_api_key
+```
+
+---
+
+## Setup
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd Sentinel-Command-Center
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+npm install
+```
+
+### Run Neuro SAN Backend
+
+```bash
+nss run --registry generated/sentinel_crisis_command
+```
+
+### Run Frontend
+
+```bash
+npm run dev
+```
+
+### Open Application
+
+```text
+http://localhost:5173
+```
 
 ---
 
@@ -187,40 +272,10 @@ Executive Action Plan
 frontend/
 backend/
 docs/
- ├── architecture.md
- ├── summary.md
- ├── screenshots/
- └── diagrams/
-```
-
----
-
-## Setup
-
-```bash
-git clone <repository-url>
-cd Sentinel-Command-Center
-
-npm install
-pip install -r requirements.txt
-```
-
-Run Backend
-
-```bash
-nss run --registry generated/sentinel_crisis_command
-```
-
-Run Frontend
-
-```bash
-npm run dev
-```
-
-Open
-
-```text
-http://localhost:5173
+├── architecture.md
+├── summary.md
+├── screenshots/
+└── diagrams/
 ```
 
 ---
@@ -231,7 +286,7 @@ Sentinel is not a chatbot.
 
 It functions as an AI-powered enterprise command center that combines organizational memory, parallel reasoning, executive decision support, and Neuro SAN multi-agent orchestration into a single workflow.
 
-The platform demonstrates how enterprise AI systems can move beyond conversation and become active decision-support infrastructure.
+The platform demonstrates how enterprise AI can move beyond conversation and become active decision-support infrastructure.
 
 ---
 
@@ -239,5 +294,5 @@ The platform demonstrates how enterprise AI systems can move beyond conversation
 
 - `docs/summary.md` — Executive project overview
 - `docs/architecture.md` — Technical architecture
-- `docs/screenshots/` — Product visuals
+- `docs/screenshots/` — Product screenshots
 - `docs/diagrams/` — System diagrams
