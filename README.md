@@ -176,8 +176,8 @@ MISTRAL_API_KEY=your_mistral_api_key
 ## Documentation
 
 For a deeper walkthrough of the architecture, the agent flow, and the diagrams above, see the full design document:
-- `docs/architecture.md` — technical architecture
-- `docs/summary.md` — executive project overview
+- `architecture.md` — technical architecture
+- `summary.md` — executive project overview
 
 ## Roadmap
 
