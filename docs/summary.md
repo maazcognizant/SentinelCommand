@@ -1,4 +1,4 @@
-# Cognizant Enterprise Automator: Project Summary
+# Enterprise Automator: Project Summary
 
 ## What We Are Trying to Achieve
 In modern enterprise environments, resolving corporate crises—such as ransomware attacks, vendor payment disputes, or legal compliance failures—requires input from multiple siloed departments (Cybersecurity, Finance, Legal, HR, SAP Operations). Traditional escalation involves a linear, human-driven workflow via email or ticketing systems, often taking 48 to 72 hours just to aggregate the data and reach a consensus for an executive decision.
@@ -6,7 +6,7 @@ In modern enterprise environments, resolving corporate crises—such as ransomwa
 Our goal was to condense this 72-hour process into a **15-second autonomous pipeline**. We wanted to build an intelligent, centralized "War Room" where an executive could state the crisis, and instantly receive a comprehensive, 360-degree risk assessment and actionable resolution plan without waiting days for individual department responses.
 
 ## How the Project Achieves This
-We built the **Cognizant Enterprise Automator**, an Enterprise Crisis Command Center, by integrating a custom React user interface with a powerful AI backend. 
+We built the **Enterprise Automator**, an Enterprise Crisis Command Center, by integrating a custom React user interface with a powerful AI backend. 
 
 The system acts as a digital Chief of Staff. Instead of waiting for human departments to reply to emails, the system uses AI agents trained on corporate policies to instantly simulate departmental analysis. By leveraging a centralized UI, the executive receives a single, perfectly formatted briefing document detailing the exact risks (e.g., financial exposure, specific corporate laws violated) alongside direct, premium action buttons (Approve, Escalate, Reject, Page On-Call, Generate RCA).
 

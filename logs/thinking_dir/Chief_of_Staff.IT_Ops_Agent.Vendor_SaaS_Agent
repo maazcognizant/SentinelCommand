@@ -201,3 +201,176 @@ Once these checks are complete, I will provide you with:
     "total_tokens": 500
 }
 ```
+
+[SYSTEM] @ 2026-07-10 22:56:51:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:56:56:
+The task is 'Check the procurement status of 50 laptops for Project Titan. Determine if they have been ordered, where they are in the shipping process, and if the delivery date can be expedited.'.
+
+[AI] @ 2026-07-10 22:57:35:
+To provide you with an accurate status update for the 50 laptops for Project Titan, I need to access your internal procurement system or project management dashboard.
+
+Since I do not have direct access to your private company data, **please provide the following information or perform the following steps:**
+
+### 1. Locate the Procurement Reference
+*   **Purchase Order (PO) Number:** Do you have the PO number associated with the Project Titan laptop order?
+*   **Vendor Name:** Who is the supplier (e.g., Dell, Apple, CDW, Insight)?
+
+### 2. Check the Internal Status
+*   **ERP/Procurement Portal:** Please check your internal system (e.g., SAP, Oracle, Coupa, or Jira/Asana) for the latest status update.
+*   **Procurement Lead:** Do you have a point of contact in your Procurement or IT Operations department? If so, I can help you draft a formal inquiry email to them.
+
+---
+
+### How I can assist you right now:
+
+If you can provide the **PO number** or the **current status notes** (even if they are incomplete), I can help you in the following ways:
+
+*   **Draft an Expedite Request:** I can write a professional email to the vendor or your internal procurement team requesting an expedited delivery, highlighting the impact of the delay on Project Titan.
+*   **Analyze Shipping Terms:** If you have the tracking information, I can help you interpret the shipping status (e.g., "In Transit" vs. "Pending Customs").
+*   **Create a Risk Mitigation Plan:** If the delivery is delayed, I can draft a plan to manage the impact on Project Titan, such as suggesting temporary rental equipment or prioritizing the delivery for key team members.
+
+**Would you like me to draft an inquiry email to your procurement department or the vendor?** If so, please let me know who the recipient is and any specific details (e.g., project deadline) you want included.
+
+[AGENT] @ 2026-07-10 22:57:35:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 415,
+    "empty_responses": 0,
+    "prompt_tokens": 47,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 2.7134010791778564,
+    "total_cost": 0.00063425,
+    "total_tokens": 462
+}
+```
+
+[SYSTEM] @ 2026-07-10 23:11:40:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 23:11:50:
+The task is 'Contact IT procurement vendor immediately to determine the cause of the shipping delay and get a firm delivery date for the 50 laptops.'.
+
+[AI] @ 2026-07-10 23:12:30:
+To address this task, I have drafted a professional communication template you can use to contact the vendor. 
+
+### Option 1: Email Template (Recommended for documentation)
+
+**Subject:** URGENT: Shipping Delay Inquiry - Order #[Insert Order Number] - 50 Laptops
+
+**Dear [Vendor Contact Name/Account Manager],**
+
+I am writing to follow up on our order for 50 laptops (Order #[Insert Order Number]), which was scheduled for delivery on [Insert Original Delivery Date].
+
+As of today, we have not received the shipment. This delay is impacting our internal deployment schedule, and we need to resolve this immediately.
+
+Could you please provide:
+1. The specific reason for the shipping delay.
+2. The current status/location of the shipment.
+3. A **firm, guaranteed delivery date** for the full order of 50 units.
+
+Please treat this as a high-priority request. I look forward to your immediate response so we can manage expectations with our internal stakeholders.
+
+Best regards,
+
+[Your Name]
+[Your Title]
+[Your Phone Number]
+
+***
+
+### Option 2: Phone Script (Use if you need an immediate verbal answer)
+
+*   **Introduction:** "Hi, this is [Your Name] from [Your Company]. I’m calling regarding Order #[Order Number] for 50 laptops that are currently overdue."
+*   **The Ask:** "The delivery was expected on [Date], but we have not received them. Can you check the status for me right now and tell me exactly what caused the delay?"
+*   **The Deadline:** "I need a firm delivery date before we hang up. We have staff waiting on these machines, and I need to be able to confirm when they will arrive."
+*   **Escalation (if they don't have an answer):** "If you don't have the information readily available, please escalate this to your logistics manager and have them call me back within the hour with a firm date."
+
+***
+
+### Next Steps for you:
+1.  **Locate your Purchase Order (PO) number** and any previous correspondence before reaching out.
+2.  **Document the response:** Once you receive a date, update your internal project tracker and notify the relevant stakeholders (e.g., IT department or the employees expecting the equipment).
+3.  **Follow up:** If the vendor fails to provide a firm date within 24 hours, consider escalating the issue to your account representative’s supervisor.
+
+**Would you like me to draft a follow-up message if they do not respond within 24 hours?**
+
+[AGENT] @ 2026-07-10 23:12:30:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 554,
+    "empty_responses": 0,
+    "prompt_tokens": 36,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 3.0137012004852295,
+    "total_cost": 0.0008400000000000001,
+    "total_tokens": 590
+}
+```
+
+[SYSTEM] @ 2026-07-11 00:55:57:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-11 00:56:09:
+The task is 'Contact the procurement vendor immediately to identify the status of the 50 laptop orders for Project Titan and demand an expedited shipping timeline or an alternative solution to have them ready by Monday.'.
+
+[AI] @ 2026-07-11 00:56:43:
+To execute this task effectively, I have drafted a formal email to your procurement vendor. You can fill in the bracketed information before sending.
+
+***
+
+**Subject:** URGENT: Status Inquiry & Expedited Delivery Request – Project Titan (50 Laptops)
+
+**Dear [Vendor Contact Name/Account Manager],**
+
+I am writing to you regarding the order for 50 laptops placed for Project Titan [Optional: Insert PO Number if available].
+
+We have reached a critical juncture in this project, and it is imperative that these units are in our possession and ready for deployment by **this coming Monday, [Insert Date]**.
+
+Could you please provide an immediate status update on this shipment? If the current delivery schedule does not align with our Monday deadline, I request that you prioritize this order for expedited shipping at your earliest convenience. 
+
+If expedited shipping is not feasible, please propose an alternative solution immediately—such as sourcing local inventory or providing temporary substitute units—so that we can ensure our team is fully equipped for the project launch.
+
+I look forward to your prompt response. Please treat this as a high-priority matter.
+
+Best regards,
+
+[Your Name]
+[Your Title]
+[Your Phone Number]
+
+***
+
+### Recommended Next Steps:
+1.  **Follow up with a phone call:** After sending the email, call your account manager directly to ensure they have seen the message. Being proactive over the phone often accelerates the internal escalation process at the vendor's end.
+2.  **Internal Escalation:** If you do not receive a confirmation by the end of the day, notify your internal stakeholders that there is a risk to the Monday deadline so they can prepare for potential contingency plans. 
+3.  **Check Contract Terms:** Review your purchase agreement regarding "Time is of the essence" clauses or service level agreements (SLAs) regarding delivery failures, in case you need to leverage these to compel the vendor to act.
+
+[AGENT] @ 2026-07-11 00:56:43:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 402,
+    "empty_responses": 0,
+    "prompt_tokens": 46,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 3.056764602661133,
+    "total_cost": 0.0006145,
+    "total_tokens": 448
+}
+```

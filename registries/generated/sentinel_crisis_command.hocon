@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "description": "Ultimate Sentinel Command Center for Cognizant India with 45 specialized agents in a magnificent 3-tier starburst hierarchy.",
-        "tags": ["crisis", "enterprise", "multi-agent", "cognizant", "starburst"],
+        "description": "Ultimate Sentinel Command Center for India with 45 specialized agents in a magnificent 3-tier starburst hierarchy.",
+        "tags": ["crisis", "enterprise", "multi-agent", "", "starburst"],
         "sample_queries": [
             "We need to urgently onboard 50 new developers for Project Titan starting Monday. However, the IT procurement vendor hasn't shipped their laptops, and Facilities hasn't printed their ID cards yet. Please triage.",
             "SAP Procurement Failure & Vendor Escalation Our primary IT hardware vendor, M/s Rashi Peripherals, just halted the shipment of 150 Dell Latitude laptops destined for the new Chennai delivery center. The project kickoff is in 4 days. They claim our SAP system failed to process their advance payment of ₹18,50,000, and our automated system sent them a threatening legal notice for breach of contract instead.",
@@ -14,7 +14,7 @@
         {
             "name": "Chief_of_Staff",
             "function": {
-                "description": "Orchestrates the full corporate crisis response for Cognizant India by delegating to 14 Department Head agents.",
+                "description": "Orchestrates the full corporate crisis response for India by delegating to 14 Department Head agents.",
                 "parameters": {
                     "type": "object",
                     "properties": {

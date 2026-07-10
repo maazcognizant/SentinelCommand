@@ -437,3 +437,177 @@ As Head of Social Media & Digital Reputation for Cognizant India, I have evaluat
     "total_tokens": 1083
 }
 ```
+
+[SYSTEM] @ 2026-07-10 23:15:25:
+Delegate to Sentiment_Analysis_Agent and Brand_Safety_Agent. Synthesize.
+
+[HUMAN] @ 2026-07-10 23:15:39:
+The task is 'Monitor the Twitter (X) thread where M/s Rashi Peripherals has tagged Cognizant. Provide real-time sentiment analysis and draft appropriate engagement responses to de-escalate the situation.'.
+
+[AGENT] @ 2026-07-10 23:16:07:
+Invoking: `Sentiment_Analysis_Agent` with:
+```json
+{
+    "invoked_agent_name": "Sentiment_Analysis_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Monitor the Twitter (X) thread where M/s Rashi Peripherals has tagged Cognizant and provide real-time sentiment analysis."
+    }
+}
+```
+
+[AGENT] @ 2026-07-10 23:16:07:
+Invoking: `Brand_Safety_Agent` with:
+```json
+{
+    "invoked_agent_name": "Brand_Safety_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Assess the risks associated with the Twitter (X) thread involving M/s Rashi Peripherals tagging Cognizant and provide guidelines for brand-safe engagement."
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from Sentiment_Analysis_Agent)] @ 2026-07-10 23:18:47:
+To monitor the Twitter (X) thread involving **M/s Rashi Peripherals (@rptechindia)** and **Cognizant (@Cognizant)**, I have outlined the process below. 
+
+Since I do not have a live, persistent connection to the real-time Twitter firehose, I have structured this as a **monitoring strategy** that you can implement using current API tools or manual tracking.
+
+### 1. Monitoring Setup
+To track this specific interaction, use the following search query in the Twitter/X search bar or your social listening tool (like Hootsuite, Sprout Social, or TweetDeck):
+
+*   **Search Query:** `from:rptechindia to:Cognizant OR @rptechindia @Cognizant`
+*   **Filter:** Set to "Latest" to ensure you see replies in real-time as they occur.
+
+---
+
+### 2. Real-Time Sentiment Analysis Framework
+As you monitor the thread, categorize the incoming data using these metrics:
+
+| Sentiment | Indicators |
+| :--- | :--- |
+| **Positive** | Expressions of gratitude, resolution of issues, or praise for partnership. |
+| **Neutral** | Standard inquiries, tagging for visibility, or status updates without emotional language. |
+| **Negative** | Complaints about service, delays, technical friction, or frustration regarding the partnership/support. |
+
+---
+
+### 3. Current Observation (Snapshot)
+*   **Context:** Rashi Peripherals is a major IT distributor in India, and Cognizant is a global IT services giant. Interactions between these two typically revolve around **IT infrastructure support, enterprise software licensing, or supply chain logistics.**
+*   **Actionable Insight:** If you are monitoring this for a specific business purpose (e.g., stock impact or supply chain health), look for:
+    *   **Response Time:** How long does Cognizant take to acknowledge Rashi Peripherals? (A delay > 4 hours in a public thread is often a negative sentiment trigger).
+    *   **Tone Shift:** Does the conversation move from public to DMs? (This usually indicates a de-escalation of a negative issue).
+
+---
+
+### 4. Automated Monitoring Recommendation
+If you need to automate this for real-time alerts, I recommend the following setup:
+
+1.  **Tool:** **Zapier** or **Make.com** connected to the **Twitter API**.
+2.  **Trigger:** "New Mention" or "New Tweet" filtered by the specific handles.
+3.  **Action:** Send the text to an **AI Sentiment Analysis API** (like OpenAI’s GPT-4o or Google Cloud Natural Language API).
+4.  **Notification:** Push the result (e.g., "Sentiment: Negative, Content: [Text]") to a Slack channel or Microsoft Teams group.
+
+---
+
+**Would you like me to analyze a specific set of tweets from this thread?** 
+If you paste the text of the recent replies here, I can provide an immediate, detailed sentiment breakdown for you.
+
+[AGENT_TOOL_RESULT (result from Brand_Safety_Agent)] @ 2026-07-10 23:18:49:
+To assess the risks associated with a public Twitter (X) thread involving a B2B partner (Rashi Peripherals) tagging a service provider (Cognizant), we must look at the dynamics of public accountability, brand perception, and technical troubleshooting.
+
+### 1. Risk Assessment
+
+*   **Public Escalation (The "Noise" Factor):** When a partner tags a major service provider publicly, it indicates that private channels (email/support tickets) have likely failed or were too slow. This creates a "public spectacle" where onlookers (competitors, prospects, employees) witness a service breakdown.
+*   **Reputational Damage by Association:** If Rashi Peripherals is tagging Cognizant regarding a critical failure (e.g., data breach, supply chain disruption, or system downtime), Cognizant’s brand is being framed as "unresponsive" or "unreliable."
+*   **Information Leakage:** In the heat of a thread, employees or partners may accidentally post sensitive project details, ticket numbers, or internal jargon that can be exploited by bad actors or used for competitive intelligence.
+*   **The "Pile-on" Effect:** Other disgruntled stakeholders (past employees, other unhappy clients) may jump into the thread to amplify the negativity, turning a specific incident into a general PR crisis.
+*   **Algorithmic Amplification:** X’s algorithm favors high-engagement threads. If the thread gains traction, it will appear in the feeds of people who have no context, causing disproportionate damage to the brand’s sentiment.
+
+---
+
+### 2. Guidelines for Brand-Safe Engagement
+
+If you are managing the brand account (Cognizant) or advising the partner (Rashi Peripherals), follow these protocols to mitigate risk:
+
+#### A. The "Move to Private" Protocol
+*   **Acknowledge, Don’t Argue:** Respond once publicly to acknowledge the issue. Use a neutral, empathetic tone.
+*   **Immediate Pivot:** The goal is to move the conversation off the public feed as quickly as possible.
+    *   *Template:* "We understand your frustration and want to prioritize this. We have sent you a DM to gather the necessary details to resolve this immediately."
+*   **Stop the Thread:** Once the DM is sent, do not respond further on the public thread unless it is to confirm that the issue is being handled offline.
+
+#### B. Content Guardrails
+*   **No Technical Specifics:** Never discuss incident details, security vulnerabilities, or contractual obligations in the public thread.
+*   **Avoid Defensive Language:** Do not use corporate jargon or blame-shifting language (e.g., "This was due to a third-party error"). It sounds defensive and invites further scrutiny.
+*   **Humanize, Don't Automate:** If the response looks like a generic bot reply, it will infuriate the partner further. Ensure the response is personalized to the specific frustration expressed.
+
+#### C. Internal Coordination
+*   **Social Media/PR/Legal Alignment:** Before hitting "Post," ensure the response has been vetted. If the issue involves a security incident or a high-value contract, Legal/Compliance must approve the wording.
+*   **Monitor, Don't Engage Further:** Once the conversation moves to DM, continue to monitor the public thread for any new developments or aggressive comments, but do not engage with third parties hijacking the thread.
+
+#### D. Proactive Partner Management (For Rashi Peripherals)
+*   **Use Public Tags Sparingly:** Partners should be advised that tagging a vendor publicly is a "nuclear option." It should only be used when all other avenues have been exhausted.
+*   **Communication Policy:** Establish a "no-surprise" policy where partners are encouraged to notify their account managers before going public. This allows the brand to address the issue before it hits social media.
+
+### Summary Checklist for the Response:
+1.  **Is the tone professional and de-escalatory?**
+2.  **Does the response offer a clear, private path to resolution?**
+3.  **Have we avoided sharing sensitive data?**
+4.  **Are we avoiding a public debate on the merits of the complaint?**
+
+**Recommended Action:** If you are representing Cognizant, issue a professional acknowledgment, provide a direct point of contact via DM, and cease all public commentary immediately. If you are representing Rashi Peripherals, consider deleting the public tag if the issue has been resolved to "clean up" the digital footprint of the partnership.
+
+[AI] @ 2026-07-10 23:18:52:
+To manage this situation effectively, I have synthesized the insights from the Sentiment Analysis and Brand Safety agents into a strategic plan.
+
+### 1. Real-Time Monitoring Strategy
+Since I do not have a live, persistent feed of the Twitter (X) firehose, you should immediately implement the following monitoring protocol to track the interaction:
+
+*   **Search Query:** `from:rptechindia to:Cognizant OR @rptechindia @Cognizant`
+*   **Action:** Filter by **"Latest"** to capture new replies in real-time.
+*   **Key Indicators to Watch:**
+    *   **Response Latency:** A delay of >4 hours from Cognizant is a high-risk trigger for negative sentiment.
+    *   **Public Escalation:** Watch for the thread being picked up by third parties or tech influencers, which would necessitate immediate escalation to your PR/Legal teams.
+
+### 2. De-escalation & Engagement Responses
+If you are managing the Cognizant account, your goal is to **acknowledge the issue publicly and move the conversation to a private channel immediately.** 
+
+**DO NOT** engage in a debate, offer technical explanations, or use overly defensive corporate jargon in the public thread.
+
+#### Proposed Response Templates:
+
+*   **Scenario A: Initial Response (Acknowledge & Pivot)**
+    > "Hi @rptechindia, we sincerely apologize for the frustration caused. We take this matter seriously and are prioritizing a resolution. We’ve sent you a DM to gather the necessary details to assist you directly."
+*   **Scenario B: Follow-up (If the partner is still complaining publicly after a DM)**
+    > "@rptechindia, we understand your concern and our team is actively reviewing the details you’ve shared in our private conversation. We appreciate your patience as we work to resolve this."
+
+### 3. Brand Safety Guidelines
+Adhere to these rules to prevent the situation from escalating into a PR crisis:
+
+1.  **The "Move to Private" Rule:** Once you have acknowledged the issue and sent a DM, **cease all public commentary.** Do not reply to further provocations on the thread.
+2.  **Information Hygiene:** Never share ticket numbers, project names, or specific technical details in the public thread.
+3.  **Humanize the Reply:** Avoid generic, bot-like responses. Ensure the tone is empathetic and professional.
+4.  **Internal Alignment:** Before posting, ensure the response is cleared by your social media manager. If the issue relates to a security incident or high-value contract, **legal/compliance approval is mandatory.**
+
+### Next Steps
+If you can paste the text of the most recent tweets from the thread here, I can provide:
+1.  A specific **sentiment score** (Positive/Neutral/Negative).
+2.  A **customized response** tailored to the exact nature of their complaint (e.g., service outage, billing issue, or supply chain delay).
+
+[AGENT] @ 2026-07-10 23:18:52:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 2305,
+    "empty_responses": 0,
+    "prompt_tokens": 2315,
+    "successful_requests": 4,
+    "time_taken_in_seconds": 166.33157062530518,
+    "total_cost": 0.00403625,
+    "total_tokens": 4620
+}
+```

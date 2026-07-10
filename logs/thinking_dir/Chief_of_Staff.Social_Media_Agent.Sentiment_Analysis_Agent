@@ -1,0 +1,70 @@
+Agent: Chief_of_Staff.Social_Media_Agent.Sentiment_Analysis_Agent
+
+[SYSTEM] @ 2026-07-10 23:16:34:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 23:16:47:
+The task is 'Monitor the Twitter (X) thread where M/s Rashi Peripherals has tagged Cognizant and provide real-time sentiment analysis.'.
+
+[AI] @ 2026-07-10 23:18:47:
+To monitor the Twitter (X) thread involving **M/s Rashi Peripherals (@rptechindia)** and **Cognizant (@Cognizant)**, I have outlined the process below. 
+
+Since I do not have a live, persistent connection to the real-time Twitter firehose, I have structured this as a **monitoring strategy** that you can implement using current API tools or manual tracking.
+
+### 1. Monitoring Setup
+To track this specific interaction, use the following search query in the Twitter/X search bar or your social listening tool (like Hootsuite, Sprout Social, or TweetDeck):
+
+*   **Search Query:** `from:rptechindia to:Cognizant OR @rptechindia @Cognizant`
+*   **Filter:** Set to "Latest" to ensure you see replies in real-time as they occur.
+
+---
+
+### 2. Real-Time Sentiment Analysis Framework
+As you monitor the thread, categorize the incoming data using these metrics:
+
+| Sentiment | Indicators |
+| :--- | :--- |
+| **Positive** | Expressions of gratitude, resolution of issues, or praise for partnership. |
+| **Neutral** | Standard inquiries, tagging for visibility, or status updates without emotional language. |
+| **Negative** | Complaints about service, delays, technical friction, or frustration regarding the partnership/support. |
+
+---
+
+### 3. Current Observation (Snapshot)
+*   **Context:** Rashi Peripherals is a major IT distributor in India, and Cognizant is a global IT services giant. Interactions between these two typically revolve around **IT infrastructure support, enterprise software licensing, or supply chain logistics.**
+*   **Actionable Insight:** If you are monitoring this for a specific business purpose (e.g., stock impact or supply chain health), look for:
+    *   **Response Time:** How long does Cognizant take to acknowledge Rashi Peripherals? (A delay > 4 hours in a public thread is often a negative sentiment trigger).
+    *   **Tone Shift:** Does the conversation move from public to DMs? (This usually indicates a de-escalation of a negative issue).
+
+---
+
+### 4. Automated Monitoring Recommendation
+If you need to automate this for real-time alerts, I recommend the following setup:
+
+1.  **Tool:** **Zapier** or **Make.com** connected to the **Twitter API**.
+2.  **Trigger:** "New Mention" or "New Tweet" filtered by the specific handles.
+3.  **Action:** Send the text to an **AI Sentiment Analysis API** (like OpenAI’s GPT-4o or Google Cloud Natural Language API).
+4.  **Notification:** Push the result (e.g., "Sentiment: Negative, Content: [Text]") to a Slack channel or Microsoft Teams group.
+
+---
+
+**Would you like me to analyze a specific set of tweets from this thread?** 
+If you paste the text of the recent replies here, I can provide an immediate, detailed sentiment breakdown for you.
+
+[AGENT] @ 2026-07-10 23:18:47:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 642,
+    "empty_responses": 0,
+    "prompt_tokens": 38,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 107.9620475769043,
+    "total_cost": 0.0009725,
+    "total_tokens": 680
+}
+```

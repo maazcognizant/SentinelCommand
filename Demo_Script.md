@@ -1,4 +1,4 @@
-# Cognizant Enterprise Automator: 5-Minute Demo Script
+# Enterprise Automator: 5-Minute Demo Script
 
 **Speaker Setup:** Speak at a steady, professional pace. Open with the slides, then transition to the code/terminal, and finish entirely in the React UI.
 
@@ -6,7 +6,7 @@
 
 ### 1. Problem Statement (0:00 - 0:30)
 **[Visual: Title Slide / Problem Slide]**
-"Hello everyone. Today I'll be demonstrating the **Cognizant Enterprise Automator**—formerly Sentinel Command. 
+"Hello everyone. Today I'll be demonstrating the **Enterprise Automator**—formerly Sentinel Command. 
 In large enterprises, when a crisis or cross-departmental operational issue occurs, resolving it requires a painful 72-hour email chain. You have to individually ping Legal, HR, Cyber Security, and Procurement, wait for their assessments, aggregate the data manually, and then make an executive decision. This siloed, sequential process is too slow, prone to human error, and costs the business millions in downtime and SLA penalties."
 
 ### 2. Proposed Solution (0:30 - 0:50)
@@ -17,7 +17,7 @@ Instead of a single chatbot, we built a 45-agent 'Starburst' network. An executi
 ### 3. Tools Used (0:50 - 1:10)
 **[Visual: Tech Stack Slide]**
 "To build this, we leveraged a decoupled, lightning-fast stack:
-* **Backend Framework:** Cognizant Neuro SAN (`nsflow`) for orchestrating the multi-agent graph.
+* **Backend Framework:** Neuro SAN (`nsflow`) for orchestrating the multi-agent graph.
 * **LLM Engine:** Google Gemini Flash Lite for ultra-high concurrency and speed.
 * **Frontend:** React, TypeScript, and Vite, utilizing WebSockets for real-time streaming and a premium Glassmorphism UI."
 
@@ -60,4 +60,4 @@ Instead of a single chatbot, we built a 45-agent 'Starburst' network. An executi
 "Finally, what happens if two managers report the exact same issue? I'll paste the laptop request again. Our Tier-1 `Search_Agent` intercepts the request, checks the Global Incident Database, flags it as a duplicate, and halts execution to save compute and prevent redundant work."
 
 **[Visual: Final UI screen showing action buttons]**
-"In summary, Cognizant Enterprise Automator transforms chaotic, multi-department corporate workflows into a centralized, parallel, autonomous pipeline. Thank you."
+"In summary, Enterprise Automator transforms chaotic, multi-department corporate workflows into a centralized, parallel, autonomous pipeline. Thank you."

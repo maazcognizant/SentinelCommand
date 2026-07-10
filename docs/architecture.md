@@ -1,10 +1,10 @@
-# Cognizant Enterprise Automator: Technical Architecture
+# Enterprise Automator: Technical Architecture
 
 ## 1. Project Vision: What We Are Trying to Do & How We Achieve It
 
 **The Problem:** Large enterprises suffer from siloed, sequential crisis management. When an operational failure or security breach occurs, resolution requires asynchronous emails between IT, Legal, HR, Finance, and Procurement. This human-driven latency costs millions in downtime, fines, and SLA breaches, often taking days to yield a unified executive decision.
 
-**The Solution:** The Cognizant Enterprise Automator eliminates this latency by substituting sequential human departments with massively parallel AI Agents. By feeding a crisis prompt into a centralized React interface, a digital "Chief of Staff" instantly delegates the problem across a highly structured, 45-agent network. The platform aggregates the cognitive output of all 45 specialists simultaneously, returning a singular, highly accurate briefing document and UI action buttons within **~15 seconds**. 
+**The Solution:** The Enterprise Automator eliminates this latency by substituting sequential human departments with massively parallel AI Agents. By feeding a crisis prompt into a centralized React interface, a digital "Chief of Staff" instantly delegates the problem across a highly structured, 45-agent network. The platform aggregates the cognitive output of all 45 specialists simultaneously, returning a singular, highly accurate briefing document and UI action buttons within **~15 seconds**. 
 
 ---
 

@@ -4,9 +4,9 @@
 
 ### The enterprise crisis war room, run by a 45-Agent Starburst Network.
 
-A **Cognizant Neuro SAN–powered** multi-agent platform that turns a 72-hour, email-driven escalation into a **~15-second autonomous pipeline**. An executive states the crisis; 45 specialized agents reason **in parallel** across three tiers (Orchestrator -> Department Heads -> Sub-Agents) and return one briefing with actionable resolutions attached.
+A **Neuro SAN–powered** multi-agent platform that turns a 72-hour, email-driven escalation into a **~15-second autonomous pipeline**. An executive states the crisis; 45 specialized agents reason **in parallel** across three tiers (Orchestrator -> Department Heads -> Sub-Agents) and return one briefing with actionable resolutions attached.
 
-[![Framework](https://img.shields.io/badge/Framework-Cognizant%20Neuro%20SAN-C77F1A?style=for-the-badge)](#powered-by-neuro-san)
+[![Framework](https://img.shields.io/badge/Framework-%20Neuro%20SAN-C77F1A?style=for-the-badge)](#powered-by-neuro-san)
 [![Backend](https://img.shields.io/badge/Backend-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#tech-stack)
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](#tech-stack)
 [![Realtime](https://img.shields.io/badge/Realtime-WebSocket-3FD98B?style=for-the-badge)](#architecture)
@@ -19,7 +19,7 @@ A **Cognizant Neuro SAN–powered** multi-agent platform that turns a 72-hour, e
 
 ## Overview
 
-**Cognizant Enterprise Automator** is an enterprise AI decision-intelligence platform built on Neuro SAN. Submit a security incident, vendor approval, compliance escalation, or risk assessment, and instead of pinging departments one by one, the system routes it to the specialists that matter, analyzes impact **in parallel**, and returns a single, executive-ready recommendation with **Approve / Escalate / Reject**, **Generate RCA**, and **ServiceNow Integrations** built in.
+**Enterprise Automator** is an enterprise AI decision-intelligence platform built on Neuro SAN. Submit a security incident, vendor approval, compliance escalation, or risk assessment, and instead of pinging departments one by one, the system routes it to the specialists that matter, analyzes impact **in parallel**, and returns a single, executive-ready recommendation with **Approve / Escalate / Reject**, **Generate RCA**, and **ServiceNow Integrations** built in.
 
 ## Screenshots
 
@@ -38,7 +38,7 @@ A **Cognizant Neuro SAN–powered** multi-agent platform that turns a 72-hour, e
 
 ## Powered by Neuro SAN
 
-[Neuro SAN](https://github.com/cognizant-ai-lab/neuro-san) is Cognizant's framework for **data-driven, multi-agent networks** — agents are declared in a registry and the framework handles routing, delegation, and communication between them. This is not a single-prompt chatbot; it is a real agent network.
+[Neuro SAN](https://github.com/-ai-lab/neuro-san) is 's framework for **data-driven, multi-agent networks** — agents are declared in a registry and the framework handles routing, delegation, and communication between them. This is not a single-prompt chatbot; it is a real agent network.
 
 **Neuro SAN capabilities we use:**
 
@@ -140,7 +140,7 @@ A decoupled client–server design: a Vite + React command center streams over W
 |---|---|
 | **Frontend** | React · TypeScript · TailwindCSS · Vite |
 | **Backend** | Python |
-| **AI framework** | Cognizant Neuro SAN |
+| **AI framework** | Neuro SAN |
 | **Communication** | WebSocket · nsflow (`:4173`) |
 | **LLM providers** | Gemini · Mistral AI |
 | **Future integrations** | ServiceNow · SAP · Microsoft Graph · MCP tools |
@@ -191,8 +191,8 @@ For a deeper walkthrough of the architecture, the agent flow, and the diagrams a
 
 <div align="center">
 
-**Cognizant Enterprise Automator is not a chatbot** — it is active decision-support infrastructure, combining organizational memory, massive parallel reasoning, and Neuro SAN orchestration into one workflow.
+**Enterprise Automator is not a chatbot** — it is active decision-support infrastructure, combining organizational memory, massive parallel reasoning, and Neuro SAN orchestration into one workflow.
 
-Built at Cognizant · [Repository](https://github.com/maazcognizant/SentinelCommand) · [Issues](https://github.com/maazcognizant/SentinelCommand/issues)
+Built at · [Repository](https://github.com/maaz/SentinelCommand) · [Issues](https://github.com/maaz/SentinelCommand/issues)
 
 </div>

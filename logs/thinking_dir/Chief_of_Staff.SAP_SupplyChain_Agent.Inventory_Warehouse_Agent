@@ -239,3 +239,30 @@ If you need to purchase units, ensure you have the following information ready f
     "total_tokens": 387
 }
 ```
+
+[SYSTEM] @ 2026-07-10 23:17:55:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 23:18:10:
+The task is 'Check the status of the order for 150 Dell Latitude laptops for the Chennai delivery center and verify if payment is the only blocker for their release.'.
+
+[AI] @ 2026-07-10 23:18:45:
+
+
+[AGENT] @ 2026-07-10 23:18:45:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 15,
+    "empty_responses": 1,
+    "prompt_tokens": 41,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 1.3622324466705322,
+    "total_cost": 3.2749999999999996e-05,
+    "total_tokens": 56
+}
+```
