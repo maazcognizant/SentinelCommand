@@ -162,6 +162,7 @@ MISTRAL_API_KEY=your_mistral_api_key
 
 <div align="center">
 
+
 ## Documentation
 
 For a deeper walkthrough of the architecture, the agent flow, and the diagrams above, see the full design document:
@@ -170,7 +171,10 @@ For a deeper walkthrough of the architecture, the agent flow, and the diagrams a
 - `docs/architecture.md` — technical architecture
 - `docs/summary.md` — executive project overview
 
+
+
 **Sentinel is not a chatbot** — it is active decision-support infrastructure, combining organizational memory, parallel reasoning, and Neuro SAN orchestration into one workflow.
+
 
 Built at Cognizant · [Repository](https://github.com/maazcognizant/SentinelCommand) · [Issues](https://github.com/maazcognizant/SentinelCommand/issues)
 
