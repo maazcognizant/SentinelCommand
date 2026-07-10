@@ -109,3 +109,58 @@ Yours sincerely,
     "total_tokens": 536
 }
 ```
+
+[SYSTEM] @ 2026-07-10 22:25:35:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:25:43:
+The task is 'Check stock availability for 25 MacBook Pro M3 Max laptops with Apple Enterprise India.'.
+
+[AI] @ 2026-07-10 22:25:56:
+To check the stock availability for 25 MacBook Pro M3 Max units with Apple Enterprise India, you should follow these steps, as Apple does not provide a public real-time inventory API for enterprise-level bulk orders:
+
+### 1. Identify Your Procurement Channel
+Apple Enterprise sales in India are handled through two primary channels. You should contact the one that best fits your company's current setup:
+
+*   **Apple Direct (Corporate/Enterprise Sales):** If your organization is a large enterprise with an existing Apple account manager, contact them directly. They have access to the "Apple Business Manager" (ABM) backend and can provide real-time lead times for bulk orders.
+*   **Apple Authorized Enterprise Resellers (AAER):** If you do not have a direct account, you must go through an authorized partner. Major partners in India include:
+    *   **Redington India** (Distributor)
+    *   **Imagine / Unicorn / Maple** (Enterprise divisions)
+    *   **Ingram Micro** (Distributor)
+
+### 2. Required Information for the Inquiry
+To get an accurate quote and stock confirmation, provide your account manager or the reseller with the following:
+*   **Exact Configuration:** The M3 Max chip comes in different variations (14-core vs. 16-core CPU, different GPU counts, and Unified Memory options). 
+*   **Timeline:** Specify your "Need-by Date."
+*   **Shipping Location:** Stock availability can vary by region (e.g., availability in Mumbai or Bengaluru may differ).
+*   **GST Details:** Provide your company’s GSTIN, as enterprise bulk orders are processed through B2B invoicing.
+
+### 3. Immediate Action Plan
+If you need this information right now, follow these steps:
+
+1.  **Visit the [Apple India Enterprise Page](https://www.apple.com/in/business/):** Scroll to the bottom and click on "Contact Apple Enterprise Sales."
+2.  **Request a Quote:** Use the [Apple Business Quote Request form](https://www.apple.com/in/shop/browse/business/find_store).
+3.  **Call a Major Reseller:** If you need an answer within hours, call the **Enterprise Sales Desk** of a major regional partner (e.g., *Imagine* or *Unicorn* Enterprise division). They hold local inventory and can confirm if 25 units are available for immediate dispatch or if they need to be back-ordered.
+
+### Important Note on "M3 Max" Availability:
+Because the M3 Max is a high-end configuration, it is often **"Build-to-Order" (BTO)**. If you require specific RAM (e.g., 64GB or 128GB) or Storage configurations, it is unlikely that 25 units are sitting in a local warehouse. You should expect a **2–4 week lead time** for BTO configurations.
+
+**Would you like me to draft an email template you can send to a reseller to expedite this request?**
+
+[AGENT] @ 2026-07-10 22:25:56:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 650,
+    "empty_responses": 0,
+    "prompt_tokens": 28,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 4.348336696624756,
+    "total_cost": 0.000982,
+    "total_tokens": 678
+}
+```

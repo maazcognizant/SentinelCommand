@@ -1,0 +1,166 @@
+Agent: Chief_of_Staff.Cyber_Security_Agent.Incident_Response_Agent
+
+[SYSTEM] @ 2026-07-10 22:01:03:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:01:07:
+The task is 'Immediate containment of LockBit ransomware attack on Bangalore SAP production servers. Isolate affected servers, disable compromised credentials, and initiate incident response protocols.'.
+
+[AI] @ 2026-07-10 22:01:57:
+To address the LockBit ransomware attack on your Bangalore SAP production environment, follow this **Immediate Containment and Incident Response Plan**. 
+
+**Note:** If you have an existing Incident Response (IR) team or Cyber Insurance provider, engage them immediately.
+
+### Phase 1: Immediate Isolation (Containment)
+*Goal: Prevent lateral movement to the rest of the network.*
+
+1.  **Network Isolation:** 
+    *   Physically or logically disconnect the affected SAP production servers from the network (isolate VLANs). **Do not shut them down** yet; volatile memory (RAM) may contain encryption keys or evidence of the threat actor's activity.
+    *   Disable VPN access and block outbound traffic to known LockBit C2 (Command & Control) IP addresses at the firewall level.
+2.  **Disable Compromised Credentials:**
+    *   Force a global password reset for all administrative accounts (SAP Basis, Domain Admins, Service Accounts).
+    *   Disable/revoke any accounts identified in logs as the entry point or those showing anomalous behavior.
+    *   Revoke all active Kerberos tickets.
+3.  **Snapshot Preservation:**
+    *   If running in a virtualized environment (VMware/Hyper-V/Cloud), take snapshots of the affected servers in their current state for forensic analysis.
+
+### Phase 2: Identification & Investigation
+*Goal: Determine the scope of the breach.*
+
+1.  **Log Analysis:**
+    *   Review SAP Security Audit logs (`SM20`), OS-level event logs, and Active Directory logs for unauthorized login attempts or privilege escalation.
+    *   Examine EDR (Endpoint Detection and Response) alerts to identify the "Patient Zero" host.
+2.  **Identify LockBit Indicators of Compromise (IoCs):**
+    *   Look for specific file extensions (e.g., `.lockbit`) and ransom notes (`Restore-My-Files.txt`).
+    *   Use tools like YARA or open-source threat intelligence feeds to identify the specific variant of LockBit.
+
+### Phase 3: SAP-Specific Remediation
+*Goal: Secure the SAP application layer.*
+
+1.  **SAP Gateway/RFC Security:**
+    *   Check `gw/acl_mode` and `gw/reg_no_conn_info` settings to ensure no unauthorized external RFC connections are active.
+2.  **Verify SAP Integrity:**
+    *   Check for unauthorized modifications to the SAP kernel or database-level triggers.
+    *   Validate the integrity of the SAP database (HANA/Oracle/SQL) backups. Ensure these backups are **offline/air-gapped** and have not been encrypted by the ransomware.
+
+### Phase 4: Recovery & Restoration
+*Goal: Return to production securely.*
+
+1.  **Clean Room Restoration:** 
+    *   Do not restore backups to the infected servers. Provision "clean" servers from hardened templates.
+    *   Restore SAP application data and database from the last known-good, pre-infection backup.
+2.  **Vulnerability Patching:**
+    *   Before bringing servers back online, ensure all OS and SAP-level security patches (especially those addressing the entry vector, such as VPN vulnerabilities or unpatched RDP/SMB) are applied.
+3.  **Hardening:** 
+    *   Implement Multi-Factor Authentication (MFA) for all administrative access.
+    *   Enforce "Least Privilege" access for all SAP service accounts.
+
+### Phase 5: Communication & Compliance
+*   **Legal/Regulatory:** If the Bangalore operation falls under IT Act, 2000 or CERT-In regulations, you are mandated to report cyber incidents within **6 hours** of discovery.
+*   **Stakeholders:** Notify the SAP Basis team, IT leadership, and legal counsel regarding the timeline and potential data exfiltration.
+
+---
+
+**Critical Warning:** 
+*   **Do not communicate with the attackers.** LockBit is known for double extortion (encrypting data + threatening to leak it). Paying the ransom does not guarantee data recovery and often marks the organization as a repeat target.
+*   **Engage a Forensics Firm:** If you lack an internal IR team, contact a professional cybersecurity firm (e.g., Mandiant, CrowdStrike, or local equivalents) immediately to perform the forensic investigation.
+
+[AGENT] @ 2026-07-10 22:01:57:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 915,
+    "empty_responses": 0,
+    "prompt_tokens": 38,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 5.402147054672241,
+    "total_cost": 0.001382,
+    "total_tokens": 953
+}
+```
+
+[SYSTEM] @ 2026-07-10 22:20:29:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:20:35:
+The task is 'Develop a set of emergency security protocols to implement following the theft of a CFO's laptop, specifically focusing on data protection, account remediation, and legal/regulatory compliance.'.
+
+[AI] @ 2026-07-10 22:21:49:
+The theft of a CFO’s laptop is a high-stakes security incident due to the potential exposure of non-public financial information (NPFI), insider trading risks, and sensitive corporate strategy.
+
+The following emergency protocols should be executed immediately upon notification of the theft.
+
+---
+
+### Phase 1: Immediate Containment (T-0 to T-2 Hours)
+*Goal: Prevent unauthorized access to corporate networks and data.*
+
+1.  **Remote Wipe & Lock:** Execute a remote "Wipe" command via the Mobile Device Management (MDM) or Unified Endpoint Management (UEM) platform (e.g., Intune, Jamf). If the device is offline, issue a "Remote Lock" to prevent boot-up access.
+2.  **Credential Revocation:** 
+    *   Force a global password reset for the CFO’s primary identity (Active Directory/Okta/Azure AD).
+    *   Revoke all active session tokens and refresh tokens.
+    *   Disable the CFO’s VPN and remote access certificates.
+3.  **Network Isolation:** Move the CFO’s user account into a "Restricted/Isolated" group in the identity provider to prevent lateral movement if a secondary device is compromised.
+4.  **Hardware Blacklisting:** Flag the laptop’s MAC address and serial number in the network access control (NAC) system to ensure that if the device attempts to reconnect to any corporate network, it is automatically quarantined.
+
+---
+
+### Phase 2: Data Protection & Forensic Analysis (T-2 to T-24 Hours)
+*Goal: Determine the scope of the breach and preserve evidence.*
+
+1.  **Log Review:** Analyze egress logs, VPN logs, and cloud storage access (e.g., SharePoint, Box, Google Drive) for the 24 hours preceding the theft. Look for large data downloads or anomalous file access patterns.
+2.  **Audit Data Residency:** Determine if the laptop contained sensitive local files (e.g., "Desktop" or "Downloads" folders) that were not synced to the cloud. If full-disk encryption (BitLocker/FileVault) was active, document this for regulatory reporting.
+3.  **Forensic Image (If recovered):** If the device is recovered, do not log in. Hand it to the forensics team to image the drive for evidence of unauthorized software installation or data exfiltration.
+
+---
+
+### Phase 3: Legal & Regulatory Compliance (T-24 to T-72 Hours)
+*Goal: Fulfill fiduciary and legal obligations.*
+
+1.  **Legal Counsel Engagement:** Notify the General Counsel immediately. The CFO’s laptop may trigger requirements under:
+    *   **SEC Disclosure:** Determine if the loss constitutes a "material" incident requiring an 8-K filing.
+    *   **Data Privacy Laws:** Assess if the laptop contained PII (Personally Identifiable Information) of employees or clients, triggering GDPR, CCPA, or other regional breach notification laws.
+2.  **Insider Trading Considerations:** If the laptop contained material non-public information (MNPI), notify the Compliance/Ethics office to monitor for suspicious trading activity linked to the CFO’s network or associated accounts.
+3.  **Insurance Notification:** Notify the company’s cyber-insurance carrier to initiate the claims process and engage their preferred breach response vendors (if required).
+
+---
+
+### Phase 4: Account Remediation & Recovery
+*Goal: Restore the executive to full functionality securely.*
+
+1.  **MFA Re-enrollment:** Require the CFO to re-enroll in Multi-Factor Authentication (MFA) using a new hardware token or verified mobile device.
+2.  **Identity Verification:** Conduct a face-to-face or verified video call with the CFO to confirm their identity and ensure they are not currently under duress (a common tactic in "Whaling" attacks).
+3.  **Clean Provisioning:** Issue a new, pre-hardened laptop. Do not restore from a local backup that may contain malicious persistence mechanisms. Use a "clean" corporate image from the cloud repository.
+
+---
+
+### Phase 5: Post-Incident Review (Lessons Learned)
+*   **Encryption Audit:** Verify if the device was fully encrypted. If not, update the MDM policy to prevent non-encrypted devices from accessing corporate assets.
+*   **DLP Enhancement:** Review Data Loss Prevention (DLP) alerts to see if the CFO was moving sensitive files to the local drive rather than the secure cloud environment.
+*   **Executive Training:** Provide tailored training for the C-suite on physical security, such as the use of privacy screens, the dangers of leaving devices in vehicles, and the importance of "Always-On" VPNs.
+
+---
+
+**Disclaimer:** *This document provides a framework for incident response. It does not constitute legal advice. Always consult with your organization’s legal counsel and DPO (Data Protection Officer) before making public or regulatory disclosures regarding a data breach.*
+
+[AGENT] @ 2026-07-10 22:21:49:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 1044,
+    "empty_responses": 0,
+    "prompt_tokens": 44,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 64.80742764472961,
+    "total_cost": 0.001577,
+    "total_tokens": 1088
+}
+```

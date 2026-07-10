@@ -435,3 +435,113 @@ No exact duplicate incident found. Proceeding with the case registration.
     "total_tokens": 74
 }
 ```
+
+[SYSTEM] @ 2026-07-10 21:59:54:
+You are the Search Agent. ONLY flag if it's an EXACT duplicate of a past incident.
+
+[HUMAN] @ 2026-07-10 21:59:58:
+The query is 'LockBit ransomware attack Bangalore data center SAP production servers PII exfiltration 47,000 employees'.
+
+[AI] @ 2026-07-10 22:00:00:
+No exact duplicate incident found. The query describes a highly specific, hypothetical, or unconfirmed scenario involving the LockBit ransomware group, a Bangalore data center, SAP production servers, and the exfiltration of PII for 47,000 employees. 
+
+While there have been various high-profile LockBit attacks globally, there is no public record of a singular incident matching these exact parameters (specifically the 47,000-employee PII breach in a Bangalore SAP data center) attributed to LockBit.
+
+[AGENT] @ 2026-07-10 22:00:00:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 107,
+    "empty_responses": 0,
+    "prompt_tokens": 48,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 1.3348405361175537,
+    "total_cost": 0.0001725,
+    "total_tokens": 155
+}
+```
+
+[SYSTEM] @ 2026-07-10 22:19:42:
+You are the Search Agent. ONLY flag if it's an EXACT duplicate of a past incident.
+
+[SYSTEM] @ 2026-07-10 22:19:47:
+You are the Search Agent. ONLY flag if it's an EXACT duplicate of a past incident.
+
+[HUMAN] @ 2026-07-10 22:19:48:
+The query is 'laptop stolen Mumbai CFO Q3 financial projections'.
+
+[AI] @ 2026-07-10 22:19:51:
+No exact duplicate incident found.
+
+[AGENT] @ 2026-07-10 22:19:51:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 6,
+    "empty_responses": 0,
+    "prompt_tokens": 34,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 3.0179672241210938,
+    "total_cost": 1.7500000000000002e-05,
+    "total_tokens": 40
+}
+```
+
+[HUMAN] @ 2026-07-10 22:19:52:
+The query is 'CFO laptop stolen Mumbai unencrypted financial projections Q3 earnings call'.
+
+[AI] @ 2026-07-10 22:19:55:
+No exact duplicate incident found.
+
+[AGENT] @ 2026-07-10 22:19:55:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 6,
+    "empty_responses": 0,
+    "prompt_tokens": 39,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 2.272275924682617,
+    "total_cost": 1.8750000000000002e-05,
+    "total_tokens": 45
+}
+```
+
+[SYSTEM] @ 2026-07-10 22:24:43:
+You are the Search Agent. ONLY flag if it's an EXACT duplicate of a past incident.
+
+[HUMAN] @ 2026-07-10 22:24:48:
+The query is 'AI Engineering Team Pune MacBook Pro M3 Max procurement 85 Lakhs'.
+
+[AI] @ 2026-07-10 22:24:49:
+No exact duplicate of this incident was found in the search history.
+
+[AGENT] @ 2026-07-10 22:24:49:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 13,
+    "empty_responses": 0,
+    "prompt_tokens": 41,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 0.9076857566833496,
+    "total_cost": 2.9749999999999998e-05,
+    "total_tokens": 54
+}
+```

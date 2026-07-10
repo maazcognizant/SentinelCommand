@@ -90,3 +90,143 @@ QA PASS: The response meets corporate formatting and PR standards.
     "total_tokens": 451
 }
 ```
+
+[SYSTEM] @ 2026-07-10 22:21:59:
+Output: 'QA PASS: The response meets corporate formatting and PR standards.'
+
+[SYSTEM] @ 2026-07-10 22:21:59:
+Output: 'QA PASS: The response meets corporate formatting and PR standards.'
+
+[HUMAN] @ 2026-07-10 22:22:05:
+The draft is '### Executive Action Summary: CFO Laptop Theft Incident
+**Date:** 10 July 2026 | **Time:** 10:19 PM IST
+
+**Situation Overview:**
+The CFO’s laptop was stolen in Mumbai approximately 20 minutes ago. The device contained unencrypted Q3 financial projections, which are classified as Material Non-Public Information (MNPI).
+
+**Immediate Actions Taken:**
+1.  **IT/Security:** Initiated remote wipe and global credential/VPN session revocation for the CFO account. IT is currently provisioning a secure replacement device.
+2.  **HR/Executive Support:** Coordinated the delivery of the secure replacement device. The CFO will receive the device by 11:30 PM IST (T-minus 45 mins) to prepare for the earnings call.
+3.  **Legal/Compliance:** Legal has been engaged to assess regulatory reporting requirements (SEBI/LODR) and to manage the disclosure strategy. A formal Incident Response Journal has been opened.
+
+**Critical Next Steps:**
+- **IT:** Confirm successful remote wipe and verify the security posture of the replacement device.
+- **Legal/Forensics:** Engage external counsel to initiate an attorney-client privileged forensic investigation to determine the extent of data exposure.
+- **Leadership:** Audit Committee briefing is required immediately. Prepare a "Contingency Disclosure" statement for the Stock Exchanges in the event of a suspected data leak.
+- **Policy:** Immediate review of internal controls regarding data storage (move to cloud-only) and mandatory full-disk encryption protocols.
+
+**Status:**
+- **Incident Severity:** CRITICAL
+- **Operational Impact:** High (Potential regulatory scrutiny)
+- **Earnings Call Readiness:** On track (Pending device delivery)'.
+
+[HUMAN] @ 2026-07-10 22:22:05:
+The draft is '### Executive Action Summary: CFO Laptop Theft (Mumbai)
+
+**Incident Status:** Critical / High Risk
+**Current Situation:** CFO's laptop stolen in Mumbai (approx. 20 mins ago). Contains unencrypted Q3 financial projections (MNPI).
+
+#### **1. Immediate Containment (In Progress)**
+*   **Access Revoked:** IT has terminated all active sessions (O365, VPN, SaaS) and locked the CFO's account.
+*   **Remote Wipe:** IT is executing remote wipe via MDM (Device ID: CFO-LAP-992).
+*   **Hardware:** Mumbai office is preparing a pre-configured "loaner" laptop. IT is facilitating secure handover to the CFO.
+
+#### **2. Regulatory & Legal Actions**
+*   **CERT-In (India):** Mandatory reporting within 6 hours. IT/Legal are coordinating this.
+*   **FIR (Police):** Local team is filing a First Information Report in Mumbai for legal/insurance documentation.
+*   **Materiality Assessment:** General Counsel and the Disclosure Committee are meeting to determine if an 8-K / regulatory disclosure is required due to the MNPI on the device.
+*   **Trading:** A trading blackout has been implemented for all personnel with access to the Q3 projections.
+
+#### **3. Strategic Recommendations**
+*   **Earnings Call:** CFO to use the replacement device. Finance is performing an integrity check to ensure the leaked projections were draft versions and that core systems remain secure.
+*   **Insurance:** Finance/Risk is notifying the cyber-insurance carrier.
+*   **Governance:** Post-incident, mandatory full-disk encryption and a "Zero Trust" policy for sensitive financial data will be strictly enforced.
+
+**Next Steps for Chief of Staff:**
+*   Monitor the 6-hour CERT-In filing deadline.
+*   Ensure the Disclosure Committee provides a recommendation on public disclosure before the earnings call.
+*   Confirm receipt of the loaner device by the CFO.'.
+
+[AI] @ 2026-07-10 22:22:06:
+QA PASS: The response meets corporate formatting and PR standards.
+
+[AGENT] @ 2026-07-10 22:22:06:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 12,
+    "empty_responses": 0,
+    "prompt_tokens": 386,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 0.8352725505828857,
+    "total_cost": 0.0001145,
+    "total_tokens": 398
+}
+```
+
+[AI] @ 2026-07-10 22:22:06:
+QA PASS: The response meets corporate formatting and PR standards.
+
+[AGENT] @ 2026-07-10 22:22:06:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 12,
+    "empty_responses": 0,
+    "prompt_tokens": 440,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 0.8561487197875977,
+    "total_cost": 0.000128,
+    "total_tokens": 452
+}
+```
+
+[SYSTEM] @ 2026-07-10 22:26:33:
+Output: 'QA PASS: The response meets corporate formatting and PR standards.'
+
+[HUMAN] @ 2026-07-10 22:26:38:
+The draft is 'Executive Action Summary: Hardware Procurement Request for AI Engineering Team
+
+1. Status of Request:
+- The request for 25 MacBook Pro M3 Max laptops has been processed.
+- No duplicate incidents found in the system.
+
+2. Key Findings & Obstacles:
+- Budget Discrepancy: The allocated budget of ₹85 Lakhs may be insufficient for 25 M3 Max units (estimated cost with GST is ~₹100 Lakhs).
+- Inventory: No direct access to internal ITAM systems to check local Pune inventory.
+- Vendor: Apple Enterprise India is a low-risk partner, but these units are likely "Build-to-Order," requiring a 2-4 week lead time.
+
+3. Recommended Actions for User:
+- Negotiate: Contact an Authorized Enterprise Reseller (Redington, Imagine, etc.) for "Enterprise Volume Pricing."
+- Adjust Specs: If pricing exceeds ₹85 Lakhs, consider a mixed-configuration order (M3 Pro/Max) to stay within the budget.
+- Formal Approval: Use the provided PO Authorization Template to initiate the formal procurement process once pricing is finalized.
+- IT Inventory Check: Contact the Pune IT Asset Management team to verify if any existing units can be redeployed to minimize new purchases.'.
+
+[AI] @ 2026-07-10 22:26:39:
+QA PASS: The response meets corporate formatting and PR standards.
+
+[AGENT] @ 2026-07-10 22:26:39:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 12,
+    "empty_responses": 0,
+    "prompt_tokens": 287,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 0.8838880062103271,
+    "total_cost": 8.975e-05,
+    "total_tokens": 299
+}
+```

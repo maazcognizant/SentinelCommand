@@ -550,3 +550,282 @@ Restricting physical access for developers must be balanced against the **Inform
     "total_tokens": 1059
 }
 ```
+
+[SYSTEM] @ 2026-07-10 22:00:15:
+Delegate to Corporate_Compliance_Agent and Ethics_Compliance_Agent. Synthesize.
+
+[HUMAN] @ 2026-07-10 22:00:19:
+The task is 'Perform urgent CERT-In regulatory compliance assessment and reporting requirements for the PII data breach.'.
+
+[AGENT] @ 2026-07-10 22:00:35:
+Invoking: `Corporate_Compliance_Agent` with:
+```json
+{
+    "invoked_agent_name": "Corporate_Compliance_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Perform urgent CERT-In regulatory compliance assessment and reporting requirements for the PII data breach."
+    }
+}
+```
+
+[AGENT] @ 2026-07-10 22:00:35:
+Invoking: `Ethics_Compliance_Agent` with:
+```json
+{
+    "invoked_agent_name": "Ethics_Compliance_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Perform urgent CERT-In regulatory compliance assessment and reporting requirements for the PII data breach."
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from Ethics_Compliance_Agent)] @ 2026-07-10 22:01:57:
+To address a PII (Personally Identifiable Information) data breach in accordance with **CERT-In (Indian Computer Emergency Response Team)** regulations, you must adhere to the **"Cyber Security Directions" issued on April 28, 2022**.
+
+Failure to report within the mandated timeframe can result in punitive action. Below is the urgent compliance framework you must execute immediately.
+
+---
+
+### 1. Mandatory Timeline: The "6-Hour" Rule
+Under CERT-In directions, any entity that experiences a "cyber security incident" (which includes data breaches/PII leaks) **must report the incident to CERT-In within 6 hours of noticing the incident.**
+
+*   **Action:** Do not wait for a full forensic investigation to conclude. Report the *known* facts immediately.
+
+### 2. Required Reporting Channels
+You must report the incident through one of the following official channels:
+*   **Email:** [incident@cert-in.org.in](mailto:incident@cert-in.org.in)
+*   **Web Form:** [https://www.cert-in.org.in/](https://www.cert-in.org.in/)
+*   **Phone:** +91-1800-11-4949 (Use for follow-up/urgent coordination).
+
+### 3. Required Information for the Report
+Your initial report should cover as much of the following as possible:
+*   **Nature of the incident:** (e.g., Unauthorized access, data exfiltration, ransomware).
+*   **Timestamp:** Date and time the breach was detected.
+*   **Systems Impacted:** Servers, databases, or applications where PII was stored.
+*   **Data Involved:** Nature of PII (Names, Aadhar, PAN, contact details, financial info).
+*   **Mitigation Steps:** Current actions taken (e.g., isolating servers, resetting credentials).
+*   **Point of Contact:** Name, designation, and contact details of the incident response lead.
+
+---
+
+### 4. Immediate Incident Response Checklist (Operational)
+While the report is being filed, execute these steps to ensure compliance and containment:
+
+1.  **Containment:** Isolate affected systems from the network to prevent further data exfiltration. Do **not** power off the machines (this destroys volatile evidence/RAM).
+2.  **Preservation:** Create bit-stream images of the affected systems for forensic analysis. This is essential for the "Root Cause Analysis" (RCA) report.
+3.  **Log Analysis:** Secure and preserve all logs (Firewall, VPN, Access, Database, Cloud) to establish the timeline of the breach.
+4.  **Regulatory Notification:**
+    *   **CERT-In:** Mandatory (within 6 hours).
+    *   **Data Protection Board/Authority:** If applicable under DPDP Act (Digital Personal Data Protection Act) requirements.
+    *   **Law Enforcement:** File an FIR with the local Cyber Crime Cell if criminal activity is confirmed.
+
+---
+
+### 5. Post-Reporting Requirements
+CERT-In may issue directions for the following:
+*   **Information Sharing:** You may be required to share specific logs or technical artifacts (e.g., malware samples, IP addresses of attackers).
+*   **RCA Report:** Once the initial report is filed, you must prepare a comprehensive Root Cause Analysis (RCA) and submit it as requested by CERT-In.
+*   **Compliance Logs:** Maintain all records of the incident for a minimum of **180 days** (as per CERT-In storage directions).
+
+---
+
+### ⚠️ Critical Disclaimer
+**I am an AI, not your legal counsel.** 
+*   **Immediate Action Required:** Please consult your organization’s **Legal/Compliance/DPO (Data Protection Officer)** immediately to finalize the specific wording of your report.
+*   **Liability:** Ensure that your report is factual. Providing misleading information to CERT-In is a violation of the IT Act.
+
+**Do you have the specific details of the breach ready?** I can assist you in drafting the formal notification email if you provide the sanitized technical details.
+
+[AGENT_TOOL_RESULT (result from Corporate_Compliance_Agent)] @ 2026-07-10 22:01:57:
+To address the mandatory reporting requirements under the **CERT-In (Indian Computer Emergency Response Team)** guidelines, you must act immediately. Under the **"Cyber Security Directions of April 28, 2022,"** organizations are required to report certain cyber incidents to CERT-In within **6 hours** of noticing the incident or becoming aware of it.
+
+Below is the structured framework for your assessment and reporting process.
+
+---
+
+### Phase 1: Immediate Assessment (The "6-Hour Window")
+Before submitting the report, gather these core data points. Do not delay reporting if all data is not available; you can submit a "Preliminary Report" and update it later.
+
+1.  **Nature of Breach:** Was it unauthorized access, data exfiltration, or a ransomware attack?
+2.  **PII Scope:** What specific PII was exposed? (e.g., Aadhaar, PAN, Bank details, contact info, health records).
+3.  **Volume:** Estimated number of affected individuals.
+4.  **Timeline:** When was the breach detected? When did it likely occur?
+5.  **Technical Indicators:** IP addresses, malicious domains, file hashes, or logs indicating the entry point.
+
+---
+
+### Phase 2: Mandatory Reporting Requirements
+You must report the incident to CERT-In via the official portal or email.
+
+*   **Official Reporting Portal:** [https://www.cert-in.org.in/](https://www.cert-in.org.in/)
+*   **Email for Reporting:** `incident@cert-in.org.in`
+*   **Required Information (per CERT-In Directions):**
+    *   Organization Name and Contact Details (CISO/Point of Contact).
+    *   Date and time of the incident.
+    *   Date and time of detection.
+    *   Type of incident (Select: "Data Breach/Unauthorized Access").
+    *   Description of the incident.
+    *   Systems/Devices affected.
+    *   Impact assessment (Operational/Financial/Reputational).
+    *   Containment/Mitigation steps taken so far.
+
+---
+
+### Phase 3: Immediate Compliance Actions
+To satisfy regulatory scrutiny during an audit or follow-up investigation, execute the following:
+
+1.  **Preserve Evidence:** Take forensic snapshots/images of the affected servers/databases. Do not reboot or wipe systems until logs are captured.
+2.  **Isolate & Contain:** Disconnect affected systems from the network to prevent further data exfiltration.
+3.  **Audit Logs:** Collect access logs, firewall logs, and application logs (these are critical for CERT-In analysis).
+4.  **Legal/Privacy Check:** Since this involves PII, determine if you are obligated to notify the **Data Protection Board (DPB)** under the **Digital Personal Data Protection (DPDP) Act, 2023**.
+
+---
+
+### Phase 4: Reporting Template (Drafting the Email)
+
+If emailing `incident@cert-in.org.in`, use this format:
+
+> **Subject:** URGENT: Report of PII Data Breach - [Organization Name] - [Date]
+>
+> **1. Incident Details:**
+> *   **Reporter:** [Name/Designation]
+> *   **Organization:** [Full Legal Name]
+> *   **Incident Type:** Data Breach / Unauthorized PII Access
+> *   **Time of Detection:** [ISO Timestamp]
+>
+> **2. Scope:**
+> *   **Nature of PII:** [List categories, e.g., Financial, Identity, Contact]
+> *   **Estimated Impact:** [Number of records affected]
+>
+> **3. Current Status:**
+> *   [State if the breach is contained or ongoing]
+>
+> **4. Mitigation:**
+> *   [Briefly list actions taken, e.g., "Resetting all credentials," "Isolating database server"]
+>
+> **5. Contact for Follow-up:**
+> *   [Name, Phone, and Email of the Security Lead]
+
+---
+
+### Critical Warnings
+1.  **Do not delay:** The 6-hour clock starts from the moment your team *notices* the incident.
+2.  **Mandatory Log Retention:** Ensure your logs are backed up. CERT-In requires you to maintain logs of ICT systems for a period of **180 days** and provide them when requested.
+3.  **Synchronize Time:** Ensure all system clocks are synchronized with the **NTP Server of the National Informatics Centre (NIC)** or others, as CERT-In requires logs to be synced.
+
+***Disclaimer:** This is a guide for regulatory compliance. I am an AI, not a legal counsel. Please consult with your organization’s Legal and Data Privacy officers immediately to ensure compliance with the specific nuances of your sector (e.g., RBI/SEBI/IRDAI guidelines if applicable).*
+
+[AI] @ 2026-07-10 22:04:03:
+An urgent CERT-In (Indian Computer Emergency Response Team) regulatory compliance assessment and reporting guide has been prepared to address the PII data breach. 
+
+Under the **CERT-In Cyber Security Directions (issued April 28, 2022)**, organizations are legally mandated to report cyber security incidents, including data breaches and unauthorized access to PII, **within 6 hours** of noticing or becoming aware of the incident.
+
+Below is the structured, step-by-step framework to immediately assess, contain, and report the breach to maintain strict regulatory compliance.
+
+---
+
+### Phase 1: Immediate Regulatory Assessment (The "6-Hour" Window)
+Do not delay reporting to perform a complete forensic investigation. A **Preliminary Report** must be submitted within the 6-hour window, which can be updated later as more details emerge.
+
+Gather the following critical details immediately:
+1. **Breach Type:** Is it unauthorized database access, data exfiltration, a ransomware attack, or an insider leak?
+2. **Scope of PII:** What specific categories of personal data are compromised? (e.g., Aadhaar, PAN, financial/bank details, medical records, or basic contact information).
+3. **Timeline:** Exact timestamp when the breach was detected vs. when it is estimated to have occurred.
+4. **Impact Estimation:** The approximate number of affected individuals/records.
+5. **Technical Identifiers:** Any known indicators of compromise (IoCs), such as rogue IP addresses, malicious domains, compromised credentials, or system logs.
+
+---
+
+### Phase 2: Official Reporting Channels
+The incident must be reported to CERT-In using one of the following official channels:
+* **Email (Preferred for immediate tracking):** `incident@cert-in.org.in`
+* **Web Portal:** [https://www.cert-in.org.in/](https://www.cert-in.org.in/)
+* **Emergency Hotline (for critical assistance/escalation):** +91-1800-11-4949
+
+---
+
+### Phase 3: CERT-In Reporting Template (Draft Email)
+Draft and send an email to `incident@cert-in.org.in` using the following standardized format. Keep it concise and factual:
+
+```text
+Subject: URGENT: Notification of PII Data Breach - [Your Organization Name] - [Date]
+
+Dear CERT-In Team,
+
+We are writing to report a cyber security incident involving unauthorized access to Personally Identifiable Information (PII), in compliance with the CERT-In Cyber Security Directions.
+
+1. Incident Details:
+- Organization Name: [Full Legal Name of Organization]
+- Address & Location: [Headquarters/Data Center Location]
+- Reporter Name & Designation: [Name, e.g., Chief Information Security Officer (CISO)]
+- Contact Details: [Phone Number & Email Address]
+
+2. Timeline of the Incident:
+- Date & Time of Detection: [YYYY-MM-DD HH:MM:SS IST]
+- Estimated Date & Time of Occurrence: [YYYY-MM-DD HH:MM:SS IST or "Under Investigation"]
+
+3. Description & Scope of the Breach:
+- Type of Incident: [e.g., Unauthorized Access / Data Exfiltration]
+- Systems/Devices Affected: [e.g., Production Database Server, Cloud Storage Bucket]
+- Categories of PII Involved: [e.g., Names, Aadhaar numbers, PAN, Email IDs, Bank Account details]
+- Estimated Impact: [e.g., Approximately XX,XXX user records affected]
+
+4. Current Containment and Mitigation Actions Taken:
+- [e.g., Isolated the compromised database server from the public network]
+- [e.g., Revoked compromised API keys/credentials and enforced global password resets]
+- [e.g., Enabled enhanced monitoring and initiated a forensic investigation]
+
+5. Point of Contact for Follow-up:
+- Primary Contact: [Name, Title, Phone, Email]
+
+We will provide further updates and a detailed Root Cause Analysis (RCA) as our investigation progresses.
+
+Sincerely,
+[Your Name/Title]
+[Organization Name]
+```
+
+---
+
+### Phase 4: Critical Compliance Checklist (Operational & Legal)
+
+1. **Preserve System Logs (Mandatory 180-Day Retention):**
+   * Do **not** reboot, wipe, or reinstall operating systems on affected servers immediately, as this destroys volatile forensic evidence in RAM.
+   * Securely back up and isolate all relevant logs (Firewall, VPN, Database access, Active Directory, and Cloud provider logs).
+   * Ensure your system clocks are synchronized with the **NTP Server of the National Informatics Centre (NIC)** or equivalent standard time servers, as CERT-In mandates synchronized time-stamping for log analysis.
+2. **Isolate & Contain:**
+   * Sever network connections to affected database clusters or servers to prevent ongoing exfiltration while preserving the systems for forensic imaging.
+3. **Assess Secondary Regulatory Obligations:**
+   * **Digital Personal Data Protection (DPDP) Act, 2023:** Since this involves PII, you may be legally required to notify the **Data Protection Board (DPB)** of India and the affected data principals (users).
+   * **Sector-Specific Regulators:** If your organization falls under specific sectors, notify relevant authorities immediately (e.g., **RBI** for banks/FinTechs, **SEBI** for financial markets, or **IRDAI** for insurance).
+4. **File a Cyber Crime Complaint:**
+   * If malicious criminal intent or external hacking is identified, file an official complaint/First Information Report (FIR) with the local Cyber Crime Cell or via the National Cyber Crime Reporting Portal ([cybercrime.gov.in](https://cybercrime.gov.in)).
+
+---
+
+### Next Steps: Post-Incident Compliance
+Once the initial 6-hour report is submitted, CERT-In may request additional information. You must prepare to:
+* Provide technical artifacts (e.g., malware samples, full log dumps, or system configurations) when requested.
+* Submit a comprehensive **Root Cause Analysis (RCA)** report detailing how the vulnerability was exploited and what long-term patches have been implemented to prevent recurrence.
+
+***Disclaimer:** This response is structured to assist with urgent regulatory compliance and incident response. It does not constitute formal legal advice. You should immediately engage your organization's legal counsel, Data Protection Officer (DPO), and CISO to align this response with your specific internal policies and corporate liabilities.*
+
+[AGENT] @ 2026-07-10 22:04:03:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 3630,
+    "empty_responses": 0,
+    "prompt_tokens": 2595,
+    "successful_requests": 4,
+    "time_taken_in_seconds": 209.42686533927917,
+    "total_cost": 0.021292500000000002,
+    "total_tokens": 6225
+}
+```

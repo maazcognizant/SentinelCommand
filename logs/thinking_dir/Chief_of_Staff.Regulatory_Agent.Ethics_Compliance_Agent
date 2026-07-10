@@ -1,0 +1,82 @@
+Agent: Chief_of_Staff.Regulatory_Agent.Ethics_Compliance_Agent
+
+[SYSTEM] @ 2026-07-10 22:00:39:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:00:44:
+The task is 'Perform urgent CERT-In regulatory compliance assessment and reporting requirements for the PII data breach.'.
+
+[AI] @ 2026-07-10 22:01:57:
+To address a PII (Personally Identifiable Information) data breach in accordance with **CERT-In (Indian Computer Emergency Response Team)** regulations, you must adhere to the **"Cyber Security Directions" issued on April 28, 2022**.
+
+Failure to report within the mandated timeframe can result in punitive action. Below is the urgent compliance framework you must execute immediately.
+
+---
+
+### 1. Mandatory Timeline: The "6-Hour" Rule
+Under CERT-In directions, any entity that experiences a "cyber security incident" (which includes data breaches/PII leaks) **must report the incident to CERT-In within 6 hours of noticing the incident.**
+
+*   **Action:** Do not wait for a full forensic investigation to conclude. Report the *known* facts immediately.
+
+### 2. Required Reporting Channels
+You must report the incident through one of the following official channels:
+*   **Email:** [incident@cert-in.org.in](mailto:incident@cert-in.org.in)
+*   **Web Form:** [https://www.cert-in.org.in/](https://www.cert-in.org.in/)
+*   **Phone:** +91-1800-11-4949 (Use for follow-up/urgent coordination).
+
+### 3. Required Information for the Report
+Your initial report should cover as much of the following as possible:
+*   **Nature of the incident:** (e.g., Unauthorized access, data exfiltration, ransomware).
+*   **Timestamp:** Date and time the breach was detected.
+*   **Systems Impacted:** Servers, databases, or applications where PII was stored.
+*   **Data Involved:** Nature of PII (Names, Aadhar, PAN, contact details, financial info).
+*   **Mitigation Steps:** Current actions taken (e.g., isolating servers, resetting credentials).
+*   **Point of Contact:** Name, designation, and contact details of the incident response lead.
+
+---
+
+### 4. Immediate Incident Response Checklist (Operational)
+While the report is being filed, execute these steps to ensure compliance and containment:
+
+1.  **Containment:** Isolate affected systems from the network to prevent further data exfiltration. Do **not** power off the machines (this destroys volatile evidence/RAM).
+2.  **Preservation:** Create bit-stream images of the affected systems for forensic analysis. This is essential for the "Root Cause Analysis" (RCA) report.
+3.  **Log Analysis:** Secure and preserve all logs (Firewall, VPN, Access, Database, Cloud) to establish the timeline of the breach.
+4.  **Regulatory Notification:**
+    *   **CERT-In:** Mandatory (within 6 hours).
+    *   **Data Protection Board/Authority:** If applicable under DPDP Act (Digital Personal Data Protection Act) requirements.
+    *   **Law Enforcement:** File an FIR with the local Cyber Crime Cell if criminal activity is confirmed.
+
+---
+
+### 5. Post-Reporting Requirements
+CERT-In may issue directions for the following:
+*   **Information Sharing:** You may be required to share specific logs or technical artifacts (e.g., malware samples, IP addresses of attackers).
+*   **RCA Report:** Once the initial report is filed, you must prepare a comprehensive Root Cause Analysis (RCA) and submit it as requested by CERT-In.
+*   **Compliance Logs:** Maintain all records of the incident for a minimum of **180 days** (as per CERT-In storage directions).
+
+---
+
+### ⚠️ Critical Disclaimer
+**I am an AI, not your legal counsel.** 
+*   **Immediate Action Required:** Please consult your organization’s **Legal/Compliance/DPO (Data Protection Officer)** immediately to finalize the specific wording of your report.
+*   **Liability:** Ensure that your report is factual. Providing misleading information to CERT-In is a violation of the IT Act.
+
+**Do you have the specific details of the breach ready?** I can assist you in drafting the formal notification email if you provide the sanitized technical details.
+
+[AGENT] @ 2026-07-10 22:01:57:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 881,
+    "empty_responses": 0,
+    "prompt_tokens": 28,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 73.02246069908142,
+    "total_cost": 0.0013285,
+    "total_tokens": 909
+}
+```

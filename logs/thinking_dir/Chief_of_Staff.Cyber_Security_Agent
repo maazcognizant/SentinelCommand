@@ -1284,3 +1284,325 @@ To remediate and harden the environment, the following controls are mandatory:
     "total_tokens": 1081
 }
 ```
+
+[SYSTEM] @ 2026-07-10 22:00:01:
+Delegate to Threat_Intel_Agent and Incident_Response_Agent. Synthesize.
+
+[HUMAN] @ 2026-07-10 22:00:06:
+The task is 'Immediate containment of LockBit ransomware attack on Bangalore SAP production servers. Identify scope of breach and prevent further lateral movement.'.
+
+[AGENT] @ 2026-07-10 22:00:44:
+Invoking: `Incident_Response_Agent` with:
+```json
+{
+    "invoked_agent_name": "Incident_Response_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Immediate containment of LockBit ransomware attack on Bangalore SAP production servers. Isolate affected servers, disable compromised credentials, and initiate incident response protocols."
+    }
+}
+```
+
+[AGENT] @ 2026-07-10 22:00:44:
+Invoking: `Threat_Intel_Agent` with:
+```json
+{
+    "invoked_agent_name": "Threat_Intel_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Identify current LockBit tactics, techniques, and procedures (TTPs) relevant to SAP environments to inform containment. Determine common lateral movement vectors for LockBit to assist in scoping the breach."
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from Incident_Response_Agent)] @ 2026-07-10 22:01:57:
+To address the LockBit ransomware attack on your Bangalore SAP production environment, follow this **Immediate Containment and Incident Response Plan**. 
+
+**Note:** If you have an existing Incident Response (IR) team or Cyber Insurance provider, engage them immediately.
+
+### Phase 1: Immediate Isolation (Containment)
+*Goal: Prevent lateral movement to the rest of the network.*
+
+1.  **Network Isolation:** 
+    *   Physically or logically disconnect the affected SAP production servers from the network (isolate VLANs). **Do not shut them down** yet; volatile memory (RAM) may contain encryption keys or evidence of the threat actor's activity.
+    *   Disable VPN access and block outbound traffic to known LockBit C2 (Command & Control) IP addresses at the firewall level.
+2.  **Disable Compromised Credentials:**
+    *   Force a global password reset for all administrative accounts (SAP Basis, Domain Admins, Service Accounts).
+    *   Disable/revoke any accounts identified in logs as the entry point or those showing anomalous behavior.
+    *   Revoke all active Kerberos tickets.
+3.  **Snapshot Preservation:**
+    *   If running in a virtualized environment (VMware/Hyper-V/Cloud), take snapshots of the affected servers in their current state for forensic analysis.
+
+### Phase 2: Identification & Investigation
+*Goal: Determine the scope of the breach.*
+
+1.  **Log Analysis:**
+    *   Review SAP Security Audit logs (`SM20`), OS-level event logs, and Active Directory logs for unauthorized login attempts or privilege escalation.
+    *   Examine EDR (Endpoint Detection and Response) alerts to identify the "Patient Zero" host.
+2.  **Identify LockBit Indicators of Compromise (IoCs):**
+    *   Look for specific file extensions (e.g., `.lockbit`) and ransom notes (`Restore-My-Files.txt`).
+    *   Use tools like YARA or open-source threat intelligence feeds to identify the specific variant of LockBit.
+
+### Phase 3: SAP-Specific Remediation
+*Goal: Secure the SAP application layer.*
+
+1.  **SAP Gateway/RFC Security:**
+    *   Check `gw/acl_mode` and `gw/reg_no_conn_info` settings to ensure no unauthorized external RFC connections are active.
+2.  **Verify SAP Integrity:**
+    *   Check for unauthorized modifications to the SAP kernel or database-level triggers.
+    *   Validate the integrity of the SAP database (HANA/Oracle/SQL) backups. Ensure these backups are **offline/air-gapped** and have not been encrypted by the ransomware.
+
+### Phase 4: Recovery & Restoration
+*Goal: Return to production securely.*
+
+1.  **Clean Room Restoration:** 
+    *   Do not restore backups to the infected servers. Provision "clean" servers from hardened templates.
+    *   Restore SAP application data and database from the last known-good, pre-infection backup.
+2.  **Vulnerability Patching:**
+    *   Before bringing servers back online, ensure all OS and SAP-level security patches (especially those addressing the entry vector, such as VPN vulnerabilities or unpatched RDP/SMB) are applied.
+3.  **Hardening:** 
+    *   Implement Multi-Factor Authentication (MFA) for all administrative access.
+    *   Enforce "Least Privilege" access for all SAP service accounts.
+
+### Phase 5: Communication & Compliance
+*   **Legal/Regulatory:** If the Bangalore operation falls under IT Act, 2000 or CERT-In regulations, you are mandated to report cyber incidents within **6 hours** of discovery.
+*   **Stakeholders:** Notify the SAP Basis team, IT leadership, and legal counsel regarding the timeline and potential data exfiltration.
+
+---
+
+**Critical Warning:** 
+*   **Do not communicate with the attackers.** LockBit is known for double extortion (encrypting data + threatening to leak it). Paying the ransom does not guarantee data recovery and often marks the organization as a repeat target.
+*   **Engage a Forensics Firm:** If you lack an internal IR team, contact a professional cybersecurity firm (e.g., Mandiant, CrowdStrike, or local equivalents) immediately to perform the forensic investigation.
+
+[AGENT_TOOL_RESULT (result from Threat_Intel_Agent)] @ 2026-07-10 22:01:58:
+To address the threat of LockBit in an SAP environment, it is necessary to bridge the gap between their generic ransomware TTPs and the specific architecture of SAP (NetWeaver, HANA, and business applications).
+
+### 1. LockBit TTPs Relevant to SAP Environments
+
+LockBit (specifically variants 3.0/Black) focuses on high-speed encryption and data exfiltration. In an SAP context, they leverage the following:
+
+*   **Initial Access & Persistence:**
+    *   **Credential Harvesting:** LockBit affiliates frequently use tools like Mimikatz or access browser-stored credentials to gain local administrator rights. If a user with SAP GUI or SAP Basis access is compromised, the attacker moves to the SAP layer.
+    *   **Exploitation of Known Vulnerabilities:** Targeting unpatched SAP systems (e.g., vulnerabilities in the SAP Message Server or SAP Router) to gain unauthorized access to the SAP Application Layer.
+*   **Discovery (SAP-Specific):**
+    *   **Landscape Mapping:** Once inside, attackers look for `saplogon.ini` files to identify target production systems. They query the `T000` table (client table) to understand the landscape architecture.
+    *   **Database Enumeration:** They prioritize identifying the SAP HANA or Oracle/SQL Server backend, as these house the actual business data (Finance, HR, Supply Chain).
+*   **Exfiltration:**
+    *   **Stealthy Staging:** LockBit uses tools like `Rclone` or `MegaSync` to exfiltrate data. In SAP environments, they often target the `/usr/sap/<SID>/` directory structures, specifically looking for exports or backup files.
+*   **Encryption (The "Lock" Phase):**
+    *   **Service Termination:** LockBit scripts will attempt to stop database services (e.g., `HDB`) to bypass file locks and ensure complete encryption of data files (`.dat`, `.log`).
+
+---
+
+### 2. Common Lateral Movement Vectors
+
+LockBit does not "live" in SAP alone; they move laterally to increase leverage. In an integrated enterprise environment, the following vectors are critical for scoping:
+
+*   **The "Basis" Pivot:**
+    *   Attackers target users with `SAP_ALL` or `SAP_NEW` profiles. If a Basis administrator’s workstation is compromised, the attacker uses the saved credentials in the SAP GUI to authenticate directly into the production environment.
+*   **Interface/RFC Connections:**
+    *   SAP environments are heavily interconnected via RFC (Remote Function Call) destinations. LockBit can move laterally by exploiting "Trusted Systems." If System A trusts System B, an attacker who compromises System B can often execute code or move to System A without additional authentication.
+*   **OS-Level Lateral Movement:**
+    *   Most SAP systems run on Linux or Windows. LockBit uses standard Windows SMB/PsExec techniques to move from a compromised workstation to the SAP Application Server or Database Server.
+*   **Shared Infrastructure/Storage:**
+    *   SAP systems often use shared NFS or CIFS mounts for backups, interfaces, or file transfers (e.g., `AL11` directories). LockBit targets these shared drives to encrypt backups simultaneously with the live environment, effectively neutralizing recovery options.
+
+---
+
+### 3. Containment & Scoping Strategy
+
+To effectively scope a breach involving LockBit and SAP, follow these steps:
+
+1.  **Isolate Management Workstations:** Immediately disconnect any workstation used by Basis or Security teams. These are the "keys to the kingdom."
+2.  **Audit RFC Destinations:** Check transaction `SM59`. Identify any unauthorized or recently modified RFC destinations that could serve as a bridge to other internal systems.
+3.  **Inspect SAP Logs:**
+    *   **Transaction `SM20` (Security Audit Log):** Look for mass downloads, unauthorized user creation, or changes to SAP profiles.
+    *   **OS-Level Logs:** Check `/usr/sap/trans/` and `/sapmnt/` for signs of staging (large, unexpected file archives).
+4.  **Database Snapshot Preservation:** Before any remediation, take a snapshot of the SAP database (HANA) logs. LockBit often hides its presence by clearing logs; the database logs may contain the only evidence of unauthorized queries.
+5.  **Segment Network Traffic:** If the breach is contained to a specific application server, sever the network communication between the Application Server and the Database Server immediately to prevent the encryption of the primary business data.
+
+**Recommendation:** Focus scoping efforts on the **Basis user population** and **shared backup storage**. If these two areas are secure, the impact on the SAP environment can often be limited to the application layer, preventing the total loss of the underlying database.
+
+[SYSTEM] @ 2026-07-10 22:20:04:
+Delegate to Threat_Intel_Agent and Incident_Response_Agent. Synthesize.
+
+[HUMAN] @ 2026-07-10 22:20:09:
+The task is 'CFO laptop stolen in Mumbai. Contains unencrypted Q3 financial projections. Assess data breach risk and implement emergency security protocols.'.
+
+[AGENT] @ 2026-07-10 22:20:22:
+Invoking: `Threat_Intel_Agent` with:
+```json
+{
+    "invoked_agent_name": "Threat_Intel_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Assess the risk associated with the theft of a CFO's laptop containing unencrypted Q3 financial projections in Mumbai. Consider the sensitivity of the data, potential threat actors, and the context of the location."
+    }
+}
+```
+
+[AGENT] @ 2026-07-10 22:20:22:
+Invoking: `Incident_Response_Agent` with:
+```json
+{
+    "invoked_agent_name": "Incident_Response_Agent",
+    "invoking_start": true,
+    "params": {
+        "task": "Develop a set of emergency security protocols to implement following the theft of a CFO's laptop, specifically focusing on data protection, account remediation, and legal/regulatory compliance."
+    }
+}
+```
+
+[AGENT_TOOL_RESULT (result from Threat_Intel_Agent)] @ 2026-07-10 22:21:33:
+The theft of a CFO’s laptop containing unencrypted Q3 financial projections in Mumbai presents a **Critical Risk** to the organization. The combination of high-value intellectual property and the specific threat landscape of a major financial hub like Mumbai necessitates an immediate and robust response.
+
+Below is the risk assessment categorized by sensitivity, threat actors, and situational context.
+
+---
+
+### 1. Sensitivity of Data: Q3 Financial Projections
+The data contained on the laptop is "Material Non-Public Information" (MNPI).
+*   **Market Impact:** If leaked, these projections could cause significant volatility in the company’s stock price, leading to potential SEC or SEBI (Securities and Exchange Board of India) investigations for insider trading or failure to disclose material information.
+*   **Competitive Advantage:** Competitors could use the data to undercut pricing, anticipate strategic pivots, or poach key clients.
+*   **Regulatory/Legal Exposure:** Since the data was unencrypted, the company may face severe regulatory fines under data protection laws (such as India’s Digital Personal Data Protection Act, if PII is also involved) and breach of fiduciary duty lawsuits from shareholders.
+
+### 2. Potential Threat Actors
+In the context of a major financial center like Mumbai, the threat actors can be segmented by motive:
+*   **Opportunistic Criminals:** The most likely scenario is a "smash and grab" or pickpocketing incident. The perpetrator may not initially know the value of the device but will attempt to sell it to local "grey market" fence operations.
+*   **Corporate Espionage/Competitors:** If the theft was targeted (e.g., at an airport or high-end hotel), the actor may be a professional hired to extract specific financial intelligence for a competitor.
+*   **Cyber-Extortionists:** Once the device reaches a professional fence, the data is likely to be accessed. These actors often scan for valuable documents to hold for ransom, threatening to release the Q3 data to the press or the board of directors unless a payment is made.
+
+### 3. Contextual Factors: Mumbai
+*   **The "Grey Market" Ecosystem:** Mumbai has a sophisticated secondary market for electronics (e.g., Lamington Road and various informal hubs). Once a device enters this ecosystem, the likelihood of data recovery is near zero, as hard drives are often wiped and resold within hours.
+*   **High-Value Targeting:** Mumbai is a hub for high-net-worth individuals and corporate executives. Frequent travelers (CFOs) are often monitored at transit points like Chhatrapati Shivaji Maharaj International Airport (CSMIA) or high-end business districts (BKC, Lower Parel) by organized criminal groups.
+*   **Legal/Law Enforcement Complexity:** While Mumbai Police are responsive, the recovery of a physical laptop in a city of this density is statistically low. Furthermore, cross-border or inter-state digital forensic assistance can be slow, hindering the ability to prove whether the data was accessed.
+
+---
+
+### 4. Risk Rating: CRITICAL
+*   **Likelihood:** High (due to the physical environment and lack of encryption).
+*   **Impact:** Catastrophic (Financial, Reputational, and Regulatory).
+
+---
+
+### 5. Recommended Immediate Actions (Remediation)
+1.  **Remote Wipe:** If the device has cellular or Wi-Fi connectivity, issue a "Remote Wipe" command via the Mobile Device Management (MDM) platform immediately.
+2.  **MNPI Disclosure:** Consult with Legal and Investor Relations to determine if the theft constitutes a "material event" that requires an immediate public disclosure to the stock exchange to prevent insider trading.
+3.  **Credential Revocation:** Treat all credentials stored on or accessed by the laptop as compromised. Force a global password reset for the CFO and rotate all API keys or digital certificates the CFO had access to.
+4.  **Forensic Preservation:** Ensure logs (VPN, cloud access, email) are locked down to determine if the laptop was accessed *before* or *after* the theft.
+5.  **Law Enforcement:** File an FIR (First Information Report) with the Mumbai Police immediately. This is necessary for both insurance purposes and as a legal record of the "Good Faith" effort to recover the device.
+6.  **Internal Audit:** Launch an immediate review of why the device was unencrypted, identifying if this was a policy failure or a technical bypass, and implement mandatory Full Disk Encryption (FDE) across the executive suite.
+
+[AGENT_TOOL_RESULT (result from Incident_Response_Agent)] @ 2026-07-10 22:21:49:
+The theft of a CFO’s laptop is a high-stakes security incident due to the potential exposure of non-public financial information (NPFI), insider trading risks, and sensitive corporate strategy.
+
+The following emergency protocols should be executed immediately upon notification of the theft.
+
+---
+
+### Phase 1: Immediate Containment (T-0 to T-2 Hours)
+*Goal: Prevent unauthorized access to corporate networks and data.*
+
+1.  **Remote Wipe & Lock:** Execute a remote "Wipe" command via the Mobile Device Management (MDM) or Unified Endpoint Management (UEM) platform (e.g., Intune, Jamf). If the device is offline, issue a "Remote Lock" to prevent boot-up access.
+2.  **Credential Revocation:** 
+    *   Force a global password reset for the CFO’s primary identity (Active Directory/Okta/Azure AD).
+    *   Revoke all active session tokens and refresh tokens.
+    *   Disable the CFO’s VPN and remote access certificates.
+3.  **Network Isolation:** Move the CFO’s user account into a "Restricted/Isolated" group in the identity provider to prevent lateral movement if a secondary device is compromised.
+4.  **Hardware Blacklisting:** Flag the laptop’s MAC address and serial number in the network access control (NAC) system to ensure that if the device attempts to reconnect to any corporate network, it is automatically quarantined.
+
+---
+
+### Phase 2: Data Protection & Forensic Analysis (T-2 to T-24 Hours)
+*Goal: Determine the scope of the breach and preserve evidence.*
+
+1.  **Log Review:** Analyze egress logs, VPN logs, and cloud storage access (e.g., SharePoint, Box, Google Drive) for the 24 hours preceding the theft. Look for large data downloads or anomalous file access patterns.
+2.  **Audit Data Residency:** Determine if the laptop contained sensitive local files (e.g., "Desktop" or "Downloads" folders) that were not synced to the cloud. If full-disk encryption (BitLocker/FileVault) was active, document this for regulatory reporting.
+3.  **Forensic Image (If recovered):** If the device is recovered, do not log in. Hand it to the forensics team to image the drive for evidence of unauthorized software installation or data exfiltration.
+
+---
+
+### Phase 3: Legal & Regulatory Compliance (T-24 to T-72 Hours)
+*Goal: Fulfill fiduciary and legal obligations.*
+
+1.  **Legal Counsel Engagement:** Notify the General Counsel immediately. The CFO’s laptop may trigger requirements under:
+    *   **SEC Disclosure:** Determine if the loss constitutes a "material" incident requiring an 8-K filing.
+    *   **Data Privacy Laws:** Assess if the laptop contained PII (Personally Identifiable Information) of employees or clients, triggering GDPR, CCPA, or other regional breach notification laws.
+2.  **Insider Trading Considerations:** If the laptop contained material non-public information (MNPI), notify the Compliance/Ethics office to monitor for suspicious trading activity linked to the CFO’s network or associated accounts.
+3.  **Insurance Notification:** Notify the company’s cyber-insurance carrier to initiate the claims process and engage their preferred breach response vendors (if required).
+
+---
+
+### Phase 4: Account Remediation & Recovery
+*Goal: Restore the executive to full functionality securely.*
+
+1.  **MFA Re-enrollment:** Require the CFO to re-enroll in Multi-Factor Authentication (MFA) using a new hardware token or verified mobile device.
+2.  **Identity Verification:** Conduct a face-to-face or verified video call with the CFO to confirm their identity and ensure they are not currently under duress (a common tactic in "Whaling" attacks).
+3.  **Clean Provisioning:** Issue a new, pre-hardened laptop. Do not restore from a local backup that may contain malicious persistence mechanisms. Use a "clean" corporate image from the cloud repository.
+
+---
+
+### Phase 5: Post-Incident Review (Lessons Learned)
+*   **Encryption Audit:** Verify if the device was fully encrypted. If not, update the MDM policy to prevent non-encrypted devices from accessing corporate assets.
+*   **DLP Enhancement:** Review Data Loss Prevention (DLP) alerts to see if the CFO was moving sensitive files to the local drive rather than the secure cloud environment.
+*   **Executive Training:** Provide tailored training for the C-suite on physical security, such as the use of privacy screens, the dangers of leaving devices in vehicles, and the importance of "Always-On" VPNs.
+
+---
+
+**Disclaimer:** *This document provides a framework for incident response. It does not constitute legal advice. Always consult with your organization’s legal counsel and DPO (Data Protection Officer) before making public or regulatory disclosures regarding a data breach.*
+
+[AI] @ 2026-07-10 22:21:52:
+The theft of a CFO’s laptop containing unencrypted Q3 financial projections in Mumbai is a **Critical Risk** incident. Because the data qualifies as Material Non-Public Information (MNPI), the company faces immediate threats regarding market volatility, regulatory scrutiny, and potential extortion.
+
+Below is the synthesized assessment and the emergency response protocol.
+
+### 1. Risk Assessment Summary
+*   **Risk Level:** **Critical.**
+*   **Data Sensitivity:** High. The laptop contains MNPI, which could lead to insider trading allegations, regulatory investigations (SEBI/SEC), and significant competitive disadvantage.
+*   **Threat Actor Profile:** Likely opportunistic (physical theft for resale), but with a high risk of secondary exploitation if the device enters Mumbai’s grey market, where actors may extract data for blackmail or corporate espionage.
+*   **Regulatory Exposure:** Potential failure to protect sensitive data and breach of fiduciary duty.
+
+---
+
+### 2. Emergency Security Protocols (Implementation Order)
+
+#### **Immediate Containment (Execute NOW)**
+1.  **Remote Command:** Issue a **"Remote Wipe"** command via your MDM platform. If the device is offline, issue a **"Remote Lock"** to prevent boot-up.
+2.  **Credential Revocation:** 
+    *   Force a global password reset for the CFO.
+    *   Revoke all active session tokens, refresh tokens, and VPN/remote access certificates.
+    *   Blacklist the laptop’s MAC address in the network access control (NAC) system.
+3.  **Legal & Disclosure:** 
+    *   Immediately engage General Counsel. Determine if the loss of this specific data qualifies as a "material event" requiring an emergency 8-K filing or regulatory notification.
+    *   Notify the company’s cyber-insurance carrier.
+
+#### **Forensic & Remediation (Next 24 Hours)**
+1.  **Log Analysis:** Review VPN and cloud access logs for the 24 hours preceding the theft to determine if the data was actively accessed or exfiltrated just prior to the physical loss.
+2.  **Law Enforcement:** File an FIR (First Information Report) with the Mumbai Police. This is essential for insurance claims and legal documentation of the company’s "good faith" efforts.
+3.  **Executive Security:** Conduct a verified identification check (video call) with the CFO to ensure they are not under duress. 
+4.  **Clean Re-provisioning:** Issue a new, pre-hardened device. Do not restore data from local backups that may contain persistent threats.
+
+#### **Post-Incident Remediation**
+*   **Policy Enforcement:** Transition to a "Zero Trust" model where sensitive projections are never stored locally on a device, even if encrypted.
+*   **Technical Audit:** Investigate why the device was unencrypted and why sensitive files were stored locally rather than in a managed cloud environment with restricted access.
+*   **C-Suite Training:** Conduct mandatory physical security training for the executive suite, emphasizing the dangers of leaving hardware unattended in high-transit environments.
+
+**Disclaimer:** *This response is for informational purposes and does not constitute legal advice. You must consult with your legal counsel and Data Protection Officer (DPO) immediately to address specific regulatory and disclosure requirements.*
+
+[AGENT] @ 2026-07-10 22:21:52:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 2784,
+    "empty_responses": 0,
+    "prompt_tokens": 2714,
+    "successful_requests": 4,
+    "time_taken_in_seconds": 91.45865845680237,
+    "total_cost": 0.0048544999999999994,
+    "total_tokens": 5498
+}
+```

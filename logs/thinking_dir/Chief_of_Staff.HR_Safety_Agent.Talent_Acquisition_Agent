@@ -1,0 +1,106 @@
+Agent: Chief_of_Staff.HR_Safety_Agent.Talent_Acquisition_Agent
+
+[SYSTEM] @ 2026-07-10 22:01:12:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:01:17:
+The task is 'Draft internal communication strategy for 47,000 employees regarding the PII data breach, focusing on transparency, clear instructions for identity protection, and reassurance of company support.'.
+
+[AI] @ 2026-07-10 22:01:57:
+This internal communication strategy is designed to manage the dissemination of information regarding a PII data breach. Given the scale (47,000 employees), the objective is to maintain trust, reduce anxiety, and ensure rapid adoption of protective measures.
+
+---
+
+### 1. Core Principles
+*   **Radical Transparency:** Acknowledge what happened, what we know, and what we *don’t* know.
+*   **Prioritize Support:** Emphasize that the company is taking full responsibility and providing resources.
+*   **Actionable Clarity:** Minimize jargon; focus on exactly what the employee needs to do next.
+*   **Unified Voice:** All communications must originate from the CEO or CISO to project authority and seriousness.
+
+---
+
+### 2. Communication Timeline
+
+#### Phase 1: The Initial Notification (T-Minus 0)
+*   **Channel:** Company-wide email + Intranet banner.
+*   **Tone:** Urgent, serious, and supportive.
+*   **Content:**
+    *   **The "What":** Brief explanation of the incident (e.g., "We recently identified unauthorized access to a system containing employee PII").
+    *   **The "Scope":** Clearly state which data was involved (e.g., names, SSNs, bank details). Do not speculate.
+    *   **The "Immediate Action":** Direct link to a dedicated "Security Response Hub" on the intranet.
+    *   **The "Reassurance":** A statement of commitment to security and a promise of ongoing updates.
+
+#### Phase 2: The Actionable Follow-up (T+2 Hours)
+*   **Channel:** Personalized email + Manager talking points.
+*   **Content:**
+    *   **Enrollment:** Provide a unique code for a complimentary 24-month identity theft protection service.
+    *   **Instructions:** Step-by-step guide on how to freeze credit and reset internal credentials.
+    *   **Manager Briefing:** Provide managers with a FAQ document to handle team-level questions so they don't feel ill-equipped.
+
+#### Phase 3: The Support & Maintenance (Ongoing)
+*   **Channel:** Weekly "Pulse" updates via email; dedicated Slack/Teams channel.
+*   **Content:**
+    *   Progress reports on the investigation.
+    *   Updates on system hardening efforts.
+    *   Reminders for mental health/counseling support (EAP) for those distressed by the event.
+
+---
+
+### 3. Key Messaging Pillars
+
+| Pillar | Focus |
+| :--- | :--- |
+| **Accountability** | "We own this incident, and we are working around the clock to fix it." |
+| **Empathy** | "We understand the concern this causes you and your family." |
+| **Security** | "We are partnering with [External Cybersecurity Firm] to investigate and prevent future occurrences." |
+
+---
+
+### 4. Operational Support
+To handle the volume of 47,000 employees, the following infrastructure must be in place *before* the email is sent:
+
+1.  **Dedicated Support Desk:** A 24/7 hotline and a specific email alias (e.g., `security-support@company.com`) staffed by HR and IT representatives.
+2.  **The "Security Response Hub":** A centralized intranet page containing:
+    *   A searchable FAQ.
+    *   Links to credit bureaus (Experian, TransUnion, Equifax).
+    *   A downloadable PDF guide on "How to protect your digital identity."
+3.  **Manager Toolkits:** One-page cheat sheets for managers to ensure consistency in messaging during team meetings.
+
+---
+
+### 5. Risk Mitigation (Drafting Guidelines)
+*   **Avoid Legalese:** Use plain language. Avoid phrases like "to the extent permitted by law."
+*   **No Blame:** Do not point fingers at specific departments or vendors. Keep the focus on the *company* as a single entity.
+*   **Tone Check:** Ensure the email does not sound like a marketing blast. Use a simple, clean template with no unnecessary branding or images.
+
+---
+
+### 6. Measuring Success
+*   **Adoption Rate:** Percentage of employees who sign up for the provided identity protection service within 48 hours.
+*   **Support Volume:** Tracking the number of tickets/calls to the help desk to identify pain points in the communication.
+*   **Sentiment Analysis:** Monitoring internal social channels (Slack/Yammer) to gauge the level of employee trust and frustration.
+
+---
+
+### *Drafting Note: Initial Email Subject Line Suggestions*
+*   *Option A (Direct):* Important: Notice of Data Security Incident
+*   *Option B (Urgent):* Action Required: Protecting your personal information
+*   *Option C (Transparent):* An update regarding our company security systems
+
+[AGENT] @ 2026-07-10 22:01:57:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 1042,
+    "empty_responses": 0,
+    "prompt_tokens": 46,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 6.016226291656494,
+    "total_cost": 0.0015745000000000002,
+    "total_tokens": 1088
+}
+```

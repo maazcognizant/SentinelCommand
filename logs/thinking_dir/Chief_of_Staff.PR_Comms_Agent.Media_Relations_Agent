@@ -1,0 +1,70 @@
+Agent: Chief_of_Staff.PR_Comms_Agent.Media_Relations_Agent
+
+[SYSTEM] @ 2026-07-10 22:00:58:
+Sub-agent execution.
+
+[HUMAN] @ 2026-07-10 22:01:03:
+The task is 'Define the core message and tone for the PR holding statement regarding the Bangalore incident, ensuring it addresses public concern while maintaining brand integrity.'.
+
+[AI] @ 2026-07-10 22:01:56:
+To define the core message and tone for a PR holding statement regarding an incident in Bangalore, we must balance **immediate accountability** with **brand stability**. 
+
+Below is the strategic framework for your communication.
+
+---
+
+### 1. The Core Message (The "What")
+The message must be anchored in three pillars: **Acknowledgment, Action, and Transparency.**
+
+*   **Acknowledgment:** Explicitly state that the company is aware of the incident and takes it with the utmost seriousness. Do not use vague language; acknowledge the location (Bangalore) to show you are grounded in the facts.
+*   **Action:** Clearly state what is being done *right now*. (e.g., "We have launched an internal investigation," "We are cooperating fully with local authorities," or "Our teams are on the ground providing support.")
+*   **Transparency:** Provide a commitment to ongoing updates. This manages expectations and prevents the vacuum of information that leads to speculation.
+
+**Draft Core Message Template:**
+> "We are deeply concerned by the recent incident in Bangalore. Our primary focus is the safety and well-being of those affected. We are currently conducting a thorough internal review and are working in full cooperation with local authorities to establish the facts. We are committed to providing updates as soon as verified information becomes available."
+
+---
+
+### 2. The Tone (The "How")
+The tone must be carefully calibrated to avoid sounding defensive or overly robotic.
+
+*   **Empathetic but Professional:** Avoid "corporate-speak" that sounds detached. Use human-centric language (e.g., "concerned," "supporting," "committed") rather than purely legalistic terminology.
+*   **Decisive and Calm:** The tone should project control. It needs to reassure stakeholders that the brand has a handle on the situation, even if the investigation is in its early stages.
+*   **Accountable:** Avoid shifting blame. Even if the incident involves third parties or external factors, the brand’s tone should reflect a sense of responsibility for the environment in which it operates.
+*   **Avoid "Over-Apologetic" Traps:** Unless fault is already established, avoid language that admits liability before the facts are in. Focus on "concern" and "cooperation" rather than "guilt" and "admission."
+
+---
+
+### 3. Maintaining Brand Integrity
+To ensure the brand emerges from the incident with its reputation intact, adhere to these three rules:
+
+1.  **Consistency across channels:** Whether the statement is on X (Twitter), LinkedIn, or a formal press release, the core message must be identical to avoid confusion.
+2.  **Avoid Speculation:** If asked for details you don't have, reiterate: *"As the investigation is active, we cannot comment on unverified reports, but we will share updates as soon as they are confirmed."* This protects the brand from having to retract statements later.
+3.  **Humanize the response:** If the incident impacted individuals, ensure the statement mentions the brand's commitment to the people involved. Brand integrity is often judged by how a company treats people during a crisis, not just how it manages the technical fallout.
+
+---
+
+### Summary Checklist for the PR Team:
+*   [ ] **Is the location clear?** (Bangalore)
+*   [ ] **Is the tone empathetic?** (Human, not robotic)
+*   [ ] **Is the next step clear?** (What is the audience supposed to wait for?)
+*   [ ] **Is it legally sound?** (Reviewed by legal counsel to ensure no premature admissions of liability)
+*   [ ] **Is there a dedicated point of contact?** (Ensure the media has one place to go for updates)
+
+[AGENT] @ 2026-07-10 22:01:56:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 776,
+    "empty_responses": 0,
+    "prompt_tokens": 36,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 4.90379786491394,
+    "total_cost": 0.001173,
+    "total_tokens": 812
+}
+```

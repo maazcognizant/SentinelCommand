@@ -9,6 +9,7 @@
         ]
     },
     include "config/llm_config.hocon",
+    "max_execution_seconds": 1200,
     "tools": [
         {
             "name": "Chief_of_Staff",
