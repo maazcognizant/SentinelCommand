@@ -1,6 +1,6 @@
 <div align="center">
 
-# Enterprise Automator (Formerly Sentinel Command)
+# Enterprise Automator (Sentinel Command)
 
 ### The enterprise crisis war room, run by a 45-Agent Starburst Network.
 
