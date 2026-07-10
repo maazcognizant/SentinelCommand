@@ -176,8 +176,6 @@ MISTRAL_API_KEY=your_mistral_api_key
 ## Documentation
 
 For a deeper walkthrough of the architecture, the agent flow, and the diagrams above, see the full design document:
-
-- **[Sentinel Command — Design & Diagram Deep-Dive (Google Doc)](https://docs.google.com/document/d/1Ni__6pR5mU98QzPfoms7JqBp6fyoGb_RE0BPBaEZ-_I/edit?usp=sharing)**
 - `docs/architecture.md` — technical architecture
 - `docs/summary.md` — executive project overview
 
