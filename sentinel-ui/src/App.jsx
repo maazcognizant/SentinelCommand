@@ -57,17 +57,55 @@ const I = ({ name, size = 16, color = 'currentColor', strokeWidth = 1.75, classN
 
 // ─── Agent & Dept Registries ──────────────────────────────────────────────
 const AGENTS = [
-  { key: 'Search_Agent',           label: 'Global Search',         icon: 'search',    color: '#10b981', desc: 'Deduplication & Cross-Reference' },
-  { key: 'Chief_of_Staff',         label: 'Chief of Staff',        icon: 'sparkle',   color: '#a78bfa', desc: 'Orchestrator & Decision Maker' },
-  { key: 'Cyber_Security_Agent',   label: 'Cyber Security',        icon: 'shield',    color: '#f87171', desc: 'IT Risk & Threat Analysis' },
-  { key: 'SAP_SupplyChain_Agent',  label: 'SAP / Operations',      icon: 'activity',  color: '#34d399', desc: 'Procurement & Logistics' },
-  { key: 'Finance_Risk_Agent',     label: 'Finance & Risk',        icon: 'dollar',    color: '#fbbf24', desc: 'INR Exposure & Budget Control' },
-  { key: 'HR_Safety_Agent',        label: 'HR & Safety',           icon: 'users',     color: '#60a5fa', desc: 'Workforce & Onboarding' },
-  { key: 'Legal_Agent',            label: 'Legal Counsel',         icon: 'scale',     color: '#f472b6', desc: 'Contract & Indian Law' },
-  { key: 'Regulatory_Agent',       label: 'Regulatory (CERT-In)',  icon: 'file',      color: '#fb923c', desc: 'SEBI, GST & Compliance' },
-  { key: 'Customer_Support_Agent', label: 'Customer Support',      icon: 'phone',     color: '#4ade80', desc: 'SLA & Client Relations' },
-  { key: 'PR_Comms_Agent',         label: 'PR & Comms',            icon: 'share',     color: '#818cf8', desc: 'Brand & Media Strategy' },
-  { key: 'Social_Media_Agent',     label: 'Social Media Monitor',  icon: 'flag',      color: '#22d3ee', desc: 'Sentiment & Digital Risk' },
+  { key: 'Search_Agent',           label: 'Global Search',         icon: 'search',    color: '#10b981', desc: 'Deduplication' },
+  { key: 'Chief_of_Staff',         label: 'Chief of Staff',        icon: 'sparkle',   color: '#a78bfa', desc: 'Orchestrator' },
+  { key: 'Cyber_Security_Agent',   label: 'Cyber Security',        icon: 'shield',    color: '#f87171', desc: 'Risk' },
+  { key: 'SAP_SupplyChain_Agent',  label: 'SAP / Operations',      icon: 'activity',  color: '#34d399', desc: 'Procurement' },
+  { key: 'Finance_Risk_Agent',     label: 'Finance & Risk',        icon: 'dollar',    color: '#fbbf24', desc: 'Budget' },
+  { key: 'HR_Safety_Agent',        label: 'HR & Safety',           icon: 'users',     color: '#60a5fa', desc: 'Workforce' },
+  { key: 'Legal_Agent',            label: 'Legal Counsel',         icon: 'scale',     color: '#f472b6', desc: 'Contract' },
+  { key: 'Regulatory_Agent',       label: 'Regulatory',            icon: 'file',      color: '#fb923c', desc: 'Compliance' },
+  { key: 'Customer_Support_Agent', label: 'Customer Support',      icon: 'phone',     color: '#4ade80', desc: 'SLA' },
+  { key: 'PR_Comms_Agent',         label: 'PR & Comms',            icon: 'share',     color: '#818cf8', desc: 'Media' },
+  { key: 'Social_Media_Agent',     label: 'Social Media',          icon: 'flag',      color: '#22d3ee', desc: 'Digital Risk' },
+  { key: 'Reviewer_Agent',         label: 'QA Reviewer',           icon: 'checkCirc', color: '#8b5cf6', desc: 'QA' },
+  { key: 'Auditor_Agent',          label: 'Senior Auditor',        icon: 'file',      color: '#f59e0b', desc: 'Audit' },
+  { key: 'IT_Ops_Agent',           label: 'IT Ops Head',           icon: 'zap',       color: '#3b82f6', desc: 'Infra' },
+  { key: 'Sales_Marketing_Agent',  label: 'Head of Growth',        icon: 'activity',  color: '#ec4899', desc: 'Sales' },
+  { key: 'Projects_Agent',         label: 'Enterprise PMO',        icon: 'grid',      color: '#14b8a6', desc: 'PMO' },
+  { key: 'Vendor_Agent',           label: 'Vendor Head',           icon: 'users',     color: '#f97316', desc: 'Vendor' },
+  { key: 'IT_Auditor_Sub_Agent',   label: 'IT Auditor',            icon: 'shield',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'Financial_Auditor_Sub_Agent', label: 'Financial Auditor', icon: 'dollar',   color: '#94a3b8', desc: 'Sub' },
+  { key: 'Procurement_Agent',      label: 'Procurement',           icon: 'activity',  color: '#94a3b8', desc: 'Sub' },
+  { key: 'Audit_Compliance_Agent', label: 'Audit Compliance',      icon: 'file',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Expense_Agent',          label: 'Expense Manager',       icon: 'dollar',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'Talent_Acquisition_Agent', label: 'Talent Acquisition',  icon: 'users',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Onboarding_Agent',       label: 'Onboarding',            icon: 'users',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Facilities_Agent',       label: 'Facilities',            icon: 'grid',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'DevOps_Agent',           label: 'DevOps',                icon: 'zap',       color: '#94a3b8', desc: 'Sub' },
+  { key: 'Data_Governance_Agent',  label: 'Data Governance',       icon: 'file',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Vendor_SaaS_Agent',      label: 'Vendor SaaS',           icon: 'activity',  color: '#94a3b8', desc: 'Sub' },
+  { key: 'Sales_Ops_Agent',        label: 'Sales Ops',             icon: 'activity',  color: '#94a3b8', desc: 'Sub' },
+  { key: 'Marketing_Analytics_Agent', label: 'Marketing Analytics', icon: 'activity', color: '#94a3b8', desc: 'Sub' },
+  { key: 'Partner_Ecosystem_Agent', label: 'Partner Ecosystem',    icon: 'share',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Project_Auditor_Sub_Agent', label: 'Project Auditor',    icon: 'file',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Project_QA_Sub_Agent',   label: 'Project QA',            icon: 'checkCirc', color: '#94a3b8', desc: 'Sub' },
+  { key: 'Vendor_Risk_Sub_Agent',  label: 'Vendor Risk',           icon: 'shield',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'Sourcing_Sub_Agent',     label: 'Sourcing',              icon: 'search',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'Logistics_Routing_Agent', label: 'Logistics',            icon: 'activity',  color: '#94a3b8', desc: 'Sub' },
+  { key: 'Inventory_Warehouse_Agent', label: 'Inventory',          icon: 'grid',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Threat_Intel_Agent',     label: 'Threat Intel',          icon: 'shield',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'Incident_Response_Agent', label: 'Incident Response',    icon: 'zap',       color: '#94a3b8', desc: 'Sub' },
+  { key: 'Contracts_Litigation_Agent', label: 'Litigation',        icon: 'scale',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'IP_Compliance_Agent',    label: 'IP Compliance',         icon: 'scale',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Internal_Comms_Agent',   label: 'Internal Comms',        icon: 'share',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Media_Relations_Agent',  label: 'Media Relations',       icon: 'share',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Sentiment_Analysis_Agent', label: 'Sentiment Analysis',  icon: 'flag',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Brand_Safety_Agent',     label: 'Brand Safety',          icon: 'shield',    color: '#94a3b8', desc: 'Sub' },
+  { key: 'VIP_Escalation_Agent',   label: 'VIP Escalation',        icon: 'phone',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'SLA_Monitoring_Agent',   label: 'SLA Monitoring',        icon: 'clock',     color: '#94a3b8', desc: 'Sub' },
+  { key: 'Corporate_Compliance_Agent', label: 'Corp Compliance',   icon: 'file',      color: '#94a3b8', desc: 'Sub' },
+  { key: 'Ethics_Compliance_Agent', label: 'Ethics Compliance',    icon: 'scale',     color: '#94a3b8', desc: 'Sub' }
 ];
 
 const SECTION_MAP = [
@@ -227,6 +265,7 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isActionLoading, setIsActionLoading] = useState(false);
   
   // Features State
   const [showSplash, setShowSplash] = useState(true);
@@ -251,7 +290,7 @@ export default function App() {
 
   const startNewSession = () => {
     setCurrentSessionId(Date.now().toString());
-    setMessages([{ role: 'agent', content: 'Welcome to Sentinel Command. The Chief of Staff and the 9-Agent Cognitive Pipeline are ready for crisis deployment. What is the situation?' }]);
+    setMessages([{ role: 'agent', content: 'Welcome to Cognizant Enterprise Automator. The Chief of Staff and the 29-Agent Cognitive Pipeline are ready for crisis deployment. What is the situation?' }]);
     setAgentStates({});
   };
 
@@ -428,6 +467,13 @@ export default function App() {
     };
 
     ws.onmessage = ev => {
+      if (wsRef.current.idleTimeout) clearTimeout(wsRef.current.idleTimeout);
+      wsRef.current.idleTimeout = setTimeout(() => {
+          if (wsRef.current && wsRef.current.readyState === 1) {
+              wsRef.current.close();
+          }
+      }, 5000);
+
       try {
         const d = JSON.parse(ev.data);
         const m = d?.message;
@@ -463,9 +509,9 @@ export default function App() {
           AGENTS.forEach((a, i) => {
             setTimeout(() => {
               setAgentStates(prev => (!prev[a.key] || prev[a.key].status === 'idle') ? prev : { ...prev, [a.key]: { status:'idle' } });
-            }, i * 180);
+            }, i * 30);
           });
-        }, 4000);
+        }, 800);
       }
       else {
         setMessages(prev => [...prev.filter(x=>!x._streaming), { role:'agent', content:'⚠️ No response received. Ensure the Neuro SAN backend (`ns run`) is active.' }]);
@@ -479,8 +525,8 @@ export default function App() {
 
   // ─── ServiceNow Integration ───────────────────────────────────────────────
   const handleCreateTicket = (userString) => {
-    if (isLoading) return;
-    setIsLoading(true);
+    if (isActionLoading) return;
+    setIsActionLoading(true);
     addToast('Connecting to ServiceNow API...', 'loader', '#0284c7');
     
     // Simulate API delay
@@ -491,9 +537,19 @@ export default function App() {
         { role: 'user', content: typeof userString === 'string' ? userString : 'Action: CREATE ServiceNow Ticket for this incident.' },
         { role: 'agent', content: `[SERVICENOW_TICKET: ${incNumber}]` }
       ]);
-      setIsLoading(false);
+      setIsActionLoading(false);
       addToast(`Ticket ${incNumber} Created Successfully`, 'checkCirc', '#059669');
-    }, 1800);
+    }, 400);
+  };
+
+  const handleSendEmail = (dept = 'Executive Board') => {
+    if (isActionLoading) return;
+    setIsActionLoading(true);
+    addToast(`Attaching PDF Report & connecting to SMTP...`, 'loader', '#4f46e5');
+    setTimeout(() => {
+      addToast(`Email Report sent successfully to ${dept}!`, 'checkCirc', '#059669');
+      setIsActionLoading(false);
+    }, 400);
   };
 
   // ─── Rendering Helpers ────────────────────────────────────────────────────
@@ -591,28 +647,51 @@ export default function App() {
                   </div>
                 </div>
                 
-                  {conclusionStatus === 'AWAITING EXECUTIVE DECISION' ? (
-                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                      <button onClick={() => handleSubmit("Action: APPROVE this decision and execute containment.")} style={{ background: 'var(--accent-green)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s' }}>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end', marginTop: 8 }}>
+                  {conclusionStatus === 'AWAITING EXECUTIVE DECISION' && (
+                    <>
+                      <button onClick={() => handleSubmit("Action: APPROVE this decision and execute containment.")} className="btn-premium" style={{ background: 'var(--accent-green)', color: 'white' }}>
                         <I name="checkCirc" size={16} /> Approve
                       </button>
-                      <button onClick={() => handleSubmit("Action: ESCALATE this issue immediately to the Board of Directors.")} style={{ background: 'var(--accent-amber)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s' }}>
-                        <I name="alert" size={16} /> Escalate
-                      </button>
-                      <button onClick={() => handleSubmit("Action: REJECT this request. Halting operations.")} style={{ background: 'var(--accent-red)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s' }}>
+                      <button onClick={() => handleSubmit("Action: REJECT this request. Halting operations.")} className="btn-premium" style={{ background: 'var(--accent-red)', color: 'white' }}>
                         <I name="xCirc" size={16} /> Reject
                       </button>
-                      <button onClick={handleCreateTicket} style={{ background: '#0f203c', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, transition: 'all 0.2s', marginLeft: 'auto' }}>
-                        <I name="grid" size={16} /> Create ServiceNow Ticket
-                      </button>
-                    </div>
-                  ) : (
-                    <div style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.7)', borderRadius: 8, fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', border: '1px solid rgba(0,0,0,0.05)' }}>
-                      <I name="checkCirc" size={14} style={{ marginRight: 6, verticalAlign: 'middle' }} /> 
+                    </>
+                  )}
+                  
+                  {(conclusionStatus === 'AWAITING EXECUTIVE DECISION' || conclusionStatus === 'REJECTED') && (
+                    <button onClick={() => handleSubmit("Action: ESCALATE this issue immediately to the Board of Directors.")} className="btn-premium" style={{ background: 'var(--accent-amber)', color: 'white' }}>
+                      <I name="alert" size={16} /> Escalate
+                    </button>
+                  )}
+
+                  {conclusionStatus !== 'AWAITING EXECUTIVE DECISION' && (
+                    <div style={{ padding: '8px 16px', background: 'linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7))', borderRadius: 8, fontSize: '0.8rem', fontWeight: 800, color: 'var(--text-muted)', border: '1px solid rgba(0,0,0,0.05)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.03)' }}>
+                      <I name="checkCirc" size={14} style={{ marginRight: 6, verticalAlign: 'middle', color: 'var(--accent-green)' }} /> 
                       ACTION RECORDED
                     </div>
                   )}
+
+                  <button onClick={handleCreateTicket} className="btn-premium" style={{ background: '#0f203c', color: 'white', marginLeft: 'auto' }}>
+                    <I name="grid" size={16} /> ServiceNow Ticket
+                  </button>
+
+                  <button onClick={() => { addToast('Paging On-Call Engineers...', 'loader', '#4f46e5'); setTimeout(() => addToast('Engineers Paged via PagerDuty', 'phone', '#059669'), 500); }} className="btn-premium" style={{ background: '#db2777', color: 'white' }}>
+                    <I name="phone" size={16} /> Page On-Call
+                  </button>
+
+                  {conclusionStatus !== 'AWAITING EXECUTIVE DECISION' && (
+                    <>
+                      <button onClick={() => { addToast('Generating RCA Document...', 'loader', '#4f46e5'); setTimeout(() => addToast('RCA Generated successfully', 'file', '#059669'), 500); }} className="btn-premium" style={{ background: '#2563eb', color: 'white' }}>
+                        <I name="file" size={16} /> Generate RCA
+                      </button>
+                      <button onClick={() => handleSendEmail(conclusionStatus === 'ESCALATED' ? 'Board of Directors' : 'Procurement & IT')} className="btn-premium" style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5)', color: 'white' }}>
+                        <I name="envelope" size={16} /> Email Report
+                      </button>
+                    </>
+                  )}
                 </div>
+              </div>
               
               {(whyReasons.length > 0 || nextSteps.length > 0) && (
                 <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'0.75rem', padding:'1.5rem', background: 'rgba(255,255,255,0.6)' }}>
@@ -662,7 +741,7 @@ export default function App() {
           <div className="splash-ring-2"></div>
           <img src="/logo.png" alt="Sentinel Logo" className="splash-logo" />
         </div>
-        <div className="splash-title">Sentinel Command</div>
+        <div className="splash-title">Cognizant Enterprise Automator</div>
         <div className="splash-subtitle">Cognitive Pipeline Initializing</div>
         <div className="splash-bar-container">
           <div className="splash-bar" style={{ width: showSplash ? '100%' : '0%' }}></div>
@@ -709,9 +788,9 @@ export default function App() {
 
       {/* ─ Sidebar ──────────────────────────────────────────────────── */}
       <div className="sidebar glass-panel no-scrollbar">
-        <div className="brand" style={{ cursor:'pointer' }} title="Sentinel Command">
+        <div className="brand" style={{ cursor:'pointer' }} title="Cognizant Enterprise Automator">
           <img src="/logo.png" alt="Logo" style={{ width:26, height:26, filter:'drop-shadow(0 0 6px rgba(79,70,229,0.4))' }} />
-          <h1>Sentinel<br/>Command</h1>
+          <h1>Enterprise<br/>Automator</h1>
         </div>
 
         <button onClick={startNewSession} style={{ background:'linear-gradient(135deg, #4f46e5, #0891b2)', color:'white', border:'none', padding:'10px', borderRadius:8, fontWeight:700, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', gap:8, marginBottom:'1rem', transition:'all 0.2s', boxShadow:'0 4px 12px rgba(79,70,229,0.3)' }}>
@@ -740,12 +819,13 @@ export default function App() {
           {sessions.length === 0 && <div style={{ fontSize:'0.7rem', color:'var(--text-muted)', padding:'0.5rem', textAlign:'center', background:'rgba(0,0,0,0.02)', borderRadius:6 }}>No past logs</div>}
         </div>
 
-        <div className="section-label">10-Agent Roster</div>
+        <div className="section-label">Live Active Agents</div>
         {AGENTS.map(({ key, label, icon, color }) => {
           const st = agentStates[key];
-          const isProcessing = st?.status && st.status !== 'idle' && st.status !== 'done' && st.status !== 'error';
+          if (!st || st.status === 'idle') return null;
+          const isProcessing = st.status !== 'done' && st.status !== 'error';
           return (
-            <div key={key} className="nav-item">
+            <div key={key} className="nav-item" style={{ background: isProcessing ? 'rgba(255,255,255,0.4)' : 'transparent', marginBottom: 4 }}>
               <I name={icon} size={13} color={isProcessing ? color : 'var(--text-muted)'} />
               <span style={{ color: isProcessing ? 'var(--text-primary)' : 'var(--text-secondary)' }}>{label}</span>
               {isProcessing && (
@@ -756,6 +836,11 @@ export default function App() {
             </div>
           );
         })}
+        {Object.values(agentStates).every(st => !st || st.status === 'idle') && (
+            <div style={{ fontSize:'0.75rem', color:'var(--text-muted)', padding:'0.5rem 0', fontStyle: 'italic' }}>
+               Awaiting crisis trigger...
+            </div>
+        )}
         
         <div style={{ marginTop:'auto', padding:'1rem 0 0' }}>
           <button onClick={() => setShowTemplates(true)} style={{ width:'100%', padding:'0.6rem', borderRadius:8, background:'rgba(79,70,229,0.08)', color:'var(--accent-blue)', border:'1px solid rgba(79,70,229,0.2)', fontSize:'0.75rem', fontWeight:600, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', gap:6 }}>

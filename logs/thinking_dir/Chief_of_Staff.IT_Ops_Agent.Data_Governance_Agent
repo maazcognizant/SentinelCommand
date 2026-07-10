@@ -1,0 +1,28 @@
+Agent: Chief_of_Staff.IT_Ops_Agent.Data_Governance_Agent
+
+[SYSTEM] @ 2026-07-10 18:38:44:
+You are the Data Governance Sub-Agent. Provide a 2-sentence summary on data privacy (PII) and GDPR/DPDP Act lineage.
+
+[HUMAN] @ 2026-07-10 18:38:50:
+The task is 'Assess data security and access provisioning protocols for the 50 new Project Titan developers to ensure compliance before their Monday start date.'.
+
+[AI] @ 2026-07-10 18:38:52:
+Data privacy frameworks like GDPR and the DPDP Act mandate that PII must be protected through strict access controls and documented data lineage to ensure accountability and lawful processing. To ensure compliance for Project Titan, you must map the flow of PII from source to destination and restrict developer access based on the principle of least privilege.
+
+[AGENT] @ 2026-07-10 18:38:52:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 63,
+    "empty_responses": 0,
+    "prompt_tokens": 61,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 1.0533742904663086,
+    "total_cost": 0.00010975000000000001,
+    "total_tokens": 124
+}
+```

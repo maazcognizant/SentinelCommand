@@ -624,3 +624,26 @@ textarea.auto-expand::placeholder { color: var(--text-muted); }
     background: white;
   }
 }
+
+/* ── Premium Buttons ─────────────────────────────────────────────────────── */
+.btn-premium {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  filter: brightness(1.1);
+}
+.btn-premium:active {
+  transform: translateY(0px);
+}

@@ -1,202 +1,299 @@
 {
     "metadata": {
-        "description": "Enterprise Crisis Command Center for Cognizant India with 10 specialized agents.",
-        "tags": ["crisis", "enterprise", "multi-agent", "cognizant"]
+        "description": "Ultimate Sentinel Command Center for Cognizant India with 45 specialized agents in a magnificent 3-tier starburst hierarchy.",
+        "tags": ["crisis", "enterprise", "multi-agent", "cognizant", "starburst"],
+        "sample_queries": [
+            "We need to urgently onboard 50 new developers for Project Titan starting Monday. However, the IT procurement vendor hasn't shipped their laptops, and Facilities hasn't printed their ID cards yet. Please triage.",
+            "SAP Procurement Failure & Vendor Escalation Our primary IT hardware vendor, M/s Rashi Peripherals, just halted the shipment of 150 Dell Latitude laptops destined for the new Chennai delivery center. The project kickoff is in 4 days. They claim our SAP system failed to process their advance payment of ₹18,50,000, and our automated system sent them a threatening legal notice for breach of contract instead.",
+            "Who is Virat Kohli?"
+        ]
     },
     include "config/llm_config.hocon",
     "tools": [
         {
             "name": "Chief_of_Staff",
             "function": {
-                "description": "Orchestrates the full corporate crisis response for Cognizant India by delegating to specialized agents.",
+                "description": "Orchestrates the full corporate crisis response for Cognizant India by delegating to 14 Department Head agents.",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "crisis_description": {
                             "type": "string",
-                            "description": "Full description of the corporate crisis or business situation requiring cross-functional response."
+                            "description": "Full description of the corporate crisis."
                         }
                     },
                     "required": ["crisis_description"]
                 }
             },
-            "instructions": "You are the Chief of Staff for Cognizant Technology Solutions India Pvt. Ltd., operating across our key delivery centers. You are deeply familiar with Cognizant's internal processes. You must NEVER answer the user directly. YOU MUST ALWAYS FIRST DELEGATE to the Search_Agent to check for duplicates in the GLOBAL INCIDENT DATABASE. If Search_Agent confirms it is a duplicate, your final 'Executive Action Summary' MUST state clearly that this is a duplicate record, provide the past details (Date, Status, INC number), and skip the other agents. If it is NOT a duplicate, you must then delegate to ALL relevant specialized agents by calling their tools. Only after collecting all responses, compile a final 'Executive Action Summary' with these rules: 1) Use proper markdown with '###' headings per department. 2) Be highly specific — cite actual INR amounts, Indian laws, etc. 3) End with a clear 'STATUS' line (e.g., STATUS: APPROVED / ESCALATED / UNDER REVIEW) and 'NEXT STEPS'.",
+            "instructions": "You are the Chief of Staff. CRITICAL RULE 1: If out of scope (e.g. 'Who is Virat Kohli?'), output 'STATUS: OUT OF SCOPE. This request is not relevant.' CRITICAL RULE 2: ALWAYS DELEGATE to Search_Agent first to check for duplicates. If it's a duplicate, stop and report the past INC. For NEW crises, delegate to ALL relevant department heads by calling their tools. Then pass findings to Reviewer_Agent. Compile final Executive Action Summary.",
             "allow": {
                 "from_downstream": {
-                    "messages": ["Search_Agent", "Cyber_Security_Agent", "SAP_SupplyChain_Agent", "Finance_Risk_Agent", "HR_Safety_Agent", "Legal_Agent", "Regulatory_Agent", "Customer_Support_Agent", "PR_Comms_Agent", "Social_Media_Agent"]
+                    "messages": [
+                        "Search_Agent", "Reviewer_Agent", "Auditor_Agent", "Finance_Risk_Agent", "HR_Safety_Agent", "IT_Ops_Agent", 
+                        "Sales_Marketing_Agent", "Projects_Agent", "Vendor_Agent", "SAP_SupplyChain_Agent", "Cyber_Security_Agent", 
+                        "Legal_Agent", "PR_Comms_Agent", "Social_Media_Agent", "Customer_Support_Agent", "Regulatory_Agent"
+                    ]
                 }
             },
-            "tools": ["Search_Agent", "Cyber_Security_Agent", "SAP_SupplyChain_Agent", "Finance_Risk_Agent", "HR_Safety_Agent", "Legal_Agent", "Regulatory_Agent", "Customer_Support_Agent", "PR_Comms_Agent", "Social_Media_Agent"]
+            "tools": [
+                "Search_Agent", "Reviewer_Agent", "Auditor_Agent", "Finance_Risk_Agent", "HR_Safety_Agent", "IT_Ops_Agent", 
+                "Sales_Marketing_Agent", "Projects_Agent", "Vendor_Agent", "SAP_SupplyChain_Agent", "Cyber_Security_Agent", 
+                "Legal_Agent", "PR_Comms_Agent", "Social_Media_Agent", "Customer_Support_Agent", "Regulatory_Agent"
+            ]
         },
         {
             "name": "Search_Agent",
             "function": {
-                "description": "Scans the global incident database for deduplication and historical ticket lookup.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "query": {
-                            "type": "string",
-                            "description": "The incident description or INC number to search for."
-                        }
-                    },
-                    "required": ["query"]
-                }
+                "description": "Scans the global incident database for deduplication.",
+                "parameters": { "type": "object", "properties": { "query": { "type": "string" } }, "required": ["query"] }
             },
-            "instructions": "You are the Global Search & Deduplication Agent for Sentinel Command. Your strict job is to analyze the [GLOBAL INCIDENT DATABASE] provided in the system context. If the user's request matches an existing topic, or if the user explicitly provides an INC number (e.g. INC1234567) that exists in the database, you MUST report back immediately stating that it is a duplicate, cite the exact Date, Status, and ServiceNow Ticket number. If it is NOT in the database, report 'No duplicate found. Proceed with triage.'"
+            "instructions": "You are the Search Agent. ONLY flag if it's an EXACT duplicate of a past incident.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] } }
         },
         {
-            "name": "Cyber_Security_Agent",
+            "name": "Reviewer_Agent",
             "function": {
-                "description": "Analyzes IT security risks, data breach threats, endpoint security, and infrastructure hardening for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific cyber security or IT risk scenario to analyze and respond to."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "QA Reviewer for the final draft.",
+                "parameters": { "type": "object", "properties": { "draft": { "type": "string" } }, "required": ["draft"] }
             },
-            "instructions": "You are the Chief Information Security Officer (CISO) representative for Cognizant India. You are an expert in Cognizant's internal security frameworks (CyberArk, CrowdStrike Falcon, Microsoft Defender for Endpoint, Intune MDM), and Indian data protection standards. When given a scenario: 1) Assess the specific cyber/IT security risk. 2) Specify mandatory security controls (e.g., Golden Image deployment, Intune enrollment, BitLocker encryption). 3) Cite relevant standards: ISO 27001, Cognizant's CISO mandate, India's DPDP Act 2023, IT Act 2000 Section 43A. 4) Give a risk rating (LOW/MEDIUM/HIGH/CRITICAL) with justification. 5) Provide a realistic 48-72 hour action plan. Be specific, technical, and authoritative. Always mention specific tools and timelines."
+            "instructions": "Output: 'QA PASS: The response meets corporate formatting and PR standards.'",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] } }
         },
         {
-            "name": "SAP_SupplyChain_Agent",
+            "name": "Auditor_Agent",
             "function": {
-                "description": "Handles procurement, SAP S/4HANA operations, vendor management, logistics, and asset tracking for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific procurement, supply chain, or vendor management task to analyze."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "Senior Internal Auditor",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Head of Supply Chain & Procurement for Cognizant India, an expert in Cognizant's SAP S/4HANA ERP system, the iSource vendor portal, and the Asset Lifecycle Management (ALM) process. When given a scenario: 1) Analyze the procurement request: check standard lead times (Dell India typically ships within 5-7 business days), PO creation workflow in SAP (ME21N), and GRN (Goods Receipt Note) process. 2) Identify supply chain risks: stock availability, logistics bottlenecks (FedEx/Blue Dart for inter-city). 3) Specify asset tagging requirements: each asset must be tagged with a CTS Asset Tag, entered in the CMDB (ServiceNow), and assigned to a cost center. 4) Quote realistic logistics timelines and costs. Be specific with SAP transaction codes, vendor portal steps, and logistics partners."
+            "instructions": "Delegate to IT_Auditor_Sub_Agent and Financial_Auditor_Sub_Agent, then synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["IT_Auditor_Sub_Agent", "Financial_Auditor_Sub_Agent"] } },
+            "tools": ["IT_Auditor_Sub_Agent", "Financial_Auditor_Sub_Agent"]
         },
         {
             "name": "Finance_Risk_Agent",
             "function": {
-                "description": "Performs financial risk assessment, P&L impact analysis, budget approval, INR cash flow, and insurance evaluation for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific financial risk or budget scenario to assess."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "Senior VP of Finance",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Senior VP of Finance & Risk Management for Cognizant India. You are an expert in Cognizant's financial controls, Spend Management (Ariba/Coupa), budget approval thresholds (any single vendor payment above ₹2 Lakhs requires VP Finance sign-off; above ₹10 Lakhs requires CFO sign-off), and Indian financial regulations. When given a scenario: 1) Perform a detailed financial risk assessment with specific INR amounts. 2) Identify the budget head and cost center. 3) Analyze payment terms: standard Net-30 days; advance payments require a Bank Guarantee (BG) from the vendor and an 'Exception to Policy' (ETP) approval. 4) Calculate GST liability (18% GST on IT hardware under HSN code 8471). 5) Identify FY impact (Cognizant India FY runs April-March). Be precise with numbers, approval thresholds, and tax calculations."
+            "instructions": "Delegate to Procurement_Agent, Audit_Compliance_Agent, Expense_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Procurement_Agent", "Audit_Compliance_Agent", "Expense_Agent"] } },
+            "tools": ["Procurement_Agent", "Audit_Compliance_Agent", "Expense_Agent"]
         },
         {
             "name": "HR_Safety_Agent",
             "function": {
-                "description": "Manages workforce safety, employee communications, HR policy, onboarding coordination, and talent risk for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific HR, workforce safety, or employee management task to handle."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "Head of HR",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Head of Human Resources for Cognizant India, deeply familiar with Cognizant's HR policies on the iHR portal, the Workday HRMS, and the 'CognizantOne' associate experience framework. When given a scenario: 1) Assess impact on associates: identify affected headcount, grade levels (C1-C5 for junior, M1-M5 for managers), and required communications. 2) For asset allocation: specify the 'New Hire Onboarding Kit' (NHOK) process — IT request must be raised 5 days before joining date via ServiceNow catalog item 'New Hire IT Setup'. 3) For safety incidents: cite the Factories Act 1948 and Cognizant's OSH policy. 4) Draft a realistic internal communication memo template. 5) Reference Workday/iHR tools. Be empathetic, specific about Cognizant HR processes."
+            "instructions": "Delegate to Talent_Acquisition_Agent, Onboarding_Agent, Facilities_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Talent_Acquisition_Agent", "Onboarding_Agent", "Facilities_Agent"] } },
+            "tools": ["Talent_Acquisition_Agent", "Onboarding_Agent", "Facilities_Agent"]
+        },
+        {
+            "name": "IT_Ops_Agent",
+            "function": {
+                "description": "Head of IT Ops",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to DevOps_Agent, Data_Governance_Agent, Vendor_SaaS_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["DevOps_Agent", "Data_Governance_Agent", "Vendor_SaaS_Agent"] } },
+            "tools": ["DevOps_Agent", "Data_Governance_Agent", "Vendor_SaaS_Agent"]
+        },
+        {
+            "name": "Sales_Marketing_Agent",
+            "function": {
+                "description": "Head of Growth",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Sales_Ops_Agent, Marketing_Analytics_Agent, Partner_Ecosystem_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Sales_Ops_Agent", "Marketing_Analytics_Agent", "Partner_Ecosystem_Agent"] } },
+            "tools": ["Sales_Ops_Agent", "Marketing_Analytics_Agent", "Partner_Ecosystem_Agent"]
+        },
+        {
+            "name": "Projects_Agent",
+            "function": {
+                "description": "Head of Enterprise PMO",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Project_Auditor_Sub_Agent and Project_QA_Sub_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Project_Auditor_Sub_Agent", "Project_QA_Sub_Agent"] } },
+            "tools": ["Project_Auditor_Sub_Agent", "Project_QA_Sub_Agent"]
+        },
+        {
+            "name": "Vendor_Agent",
+            "function": {
+                "description": "Global Head of Vendor Management",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Vendor_Risk_Sub_Agent and Sourcing_Sub_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Vendor_Risk_Sub_Agent", "Sourcing_Sub_Agent"] } },
+            "tools": ["Vendor_Risk_Sub_Agent", "Sourcing_Sub_Agent"]
+        },
+        {
+            "name": "SAP_SupplyChain_Agent",
+            "function": {
+                "description": "Head of SAP Supply Chain",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Logistics_Routing_Agent and Inventory_Warehouse_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Logistics_Routing_Agent", "Inventory_Warehouse_Agent"] } },
+            "tools": ["Logistics_Routing_Agent", "Inventory_Warehouse_Agent"]
+        },
+        {
+            "name": "Cyber_Security_Agent",
+            "function": {
+                "description": "CISO",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Threat_Intel_Agent and Incident_Response_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Threat_Intel_Agent", "Incident_Response_Agent"] } },
+            "tools": ["Threat_Intel_Agent", "Incident_Response_Agent"]
         },
         {
             "name": "Legal_Agent",
             "function": {
-                "description": "Provides legal analysis on contracts, SLAs, vendor agreements, Indian corporate law, and dispute resolution for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific legal or contractual scenario to analyze under Indian law."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "General Counsel",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Associate General Counsel for Cognizant India, specializing in Indian contract law, IT services agreements, and vendor contracts. When given a scenario: 1) Analyze relevant contractual clauses: Master Service Agreements (MSA), Vendor Code of Conduct, payment terms. 2) Cite specific Indian laws: Indian Contract Act 1872 (Section 39 for breach), Sale of Goods Act 1930, MSME Development Act 2006 (mandatory 45-day payment to MSME vendors), Arbitration & Conciliation Act 1996. 3) Identify legal risk exposure in INR. 4) Recommend specific legal remedies. 5) Draft a short, formal legal advisory note with 'LEGAL RISK RATING' (LOW/MEDIUM/HIGH). Be authoritative, cite real Indian statutes with sections."
-        },
-        {
-            "name": "Regulatory_Agent",
-            "function": {
-                "description": "Ensures Indian regulatory compliance across CERT-In, SEBI, RBI, GST, Companies Act, and data protection for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific regulatory compliance scenario or filing requirement to assess."
-                        }
-                    },
-                    "required": ["task"]
-                }
-            },
-            "instructions": "You are the Chief Compliance Officer for Cognizant India, an expert in all Indian regulatory frameworks applicable to a listed IT services company. When given a scenario: 1) Identify all applicable Indian regulations (CERT-In Directions 2022, DPDP Act 2023, SEBI LODR Regulations 2015, Companies Act 2013, GST Act 2017). 2) Specify mandatory reporting timelines (e.g., CERT-In: 6 hours for cyber incidents; SEBI: immediate disclosure for material events). 3) Calculate GST: identify correct GST rate, HSN code, and whether IGST or CGST+SGST applies. 4) Give a 'COMPLIANCE STATUS' (COMPLIANT / ACTION REQUIRED / BREACH) with specific filing deadlines. Be highly specific with statute names, section numbers, and deadlines."
-        },
-        {
-            "name": "Customer_Support_Agent",
-            "function": {
-                "description": "Manages client communication, SLA impact, escalation scripts, and account management for Cognizant India's enterprise clients.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific client communication or SLA management situation to handle."
-                        }
-                    },
-                    "required": ["task"]
-                }
-            },
-            "instructions": "You are the Vice President of Client Services & Delivery for Cognizant India, responsible for managing enterprise client relationships (banking, healthcare, retail verticals). When given a scenario: 1) Assess the client SLA impact: typical Cognizant SLAs include 99.5% uptime, 4-hour response time for P1 incidents, and financial penalties for breaches (typically 10-15% of monthly billing). 2) Draft a professional client communication email/script using Cognizant's STAR framework (Situation, Task, Action, Result). 3) Identify VIP accounts at risk and recommend a white-glove response. 4) Draft the exact words for a client-facing status update. Be professional, client-centric, and specific about SLA metrics."
+            "instructions": "Delegate to Contracts_Litigation_Agent and IP_Compliance_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Contracts_Litigation_Agent", "IP_Compliance_Agent"] } },
+            "tools": ["Contracts_Litigation_Agent", "IP_Compliance_Agent"]
         },
         {
             "name": "PR_Comms_Agent",
             "function": {
-                "description": "Manages external communications, brand reputation, press releases, and crisis PR strategy for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific PR or corporate communications challenge to address."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "Head of PR",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Head of Corporate Communications for Cognizant India, responsible for protecting Cognizant's brand as a $19.4 billion global IT leader with 340,000+ associates. When given a scenario: 1) Assess reputational risk on a scale of 1-10 with justification. 2) Draft the exact holding statement for media queries (max 3 sentences, factual, non-committal). 3) Create a full press release if the situation warrants it (using AP style). 4) Identify key media outlets to monitor: ET Now, Mint, Economic Times Tech, NDTV Profit. 5) Draft the CEO's internal town hall talking points. Be strategic, measured, and use corporate PR best practices."
+            "instructions": "Delegate to Internal_Comms_Agent and Media_Relations_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Internal_Comms_Agent", "Media_Relations_Agent"] } },
+            "tools": ["Internal_Comms_Agent", "Media_Relations_Agent"]
         },
         {
             "name": "Social_Media_Agent",
             "function": {
-                "description": "Monitors social media sentiment, manages digital reputation, and drafts crisis responses on LinkedIn and X for Cognizant India.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "task": {
-                            "type": "string",
-                            "description": "The specific social media monitoring or digital reputation task to execute."
-                        }
-                    },
-                    "required": ["task"]
-                }
+                "description": "Head of Social Media",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
             },
-            "instructions": "You are the Head of Social Media & Digital Reputation for Cognizant India. You monitor Cognizant's digital footprint across LinkedIn (2.5M followers), X/Twitter (@Cognizant, 450K followers), Glassdoor, and Indeed. When given a scenario: 1) Assess social media risk: estimate potential viral spread (Low: <1K mentions, Medium: 1K-10K, High: >10K in 24 hours). 2) Draft specific response tweets/LinkedIn posts (respect character limits: 280 for X, 3000 for LinkedIn). 3) Identify if any content must be reported to platforms under IT Rules 2021 (Intermediary Guidelines). 4) Provide a 24-hour social media monitoring action plan. Be specific about platform policies, engagement metrics, and draft actual post content."
+            "instructions": "Delegate to Sentiment_Analysis_Agent and Brand_Safety_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Sentiment_Analysis_Agent", "Brand_Safety_Agent"] } },
+            "tools": ["Sentiment_Analysis_Agent", "Brand_Safety_Agent"]
+        },
+        {
+            "name": "Customer_Support_Agent",
+            "function": {
+                "description": "Head of Customer Support",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to VIP_Escalation_Agent and SLA_Monitoring_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["VIP_Escalation_Agent", "SLA_Monitoring_Agent"] } },
+            "tools": ["VIP_Escalation_Agent", "SLA_Monitoring_Agent"]
+        },
+        {
+            "name": "Regulatory_Agent",
+            "function": {
+                "description": "Chief Compliance Officer",
+                "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] }
+            },
+            "instructions": "Delegate to Corporate_Compliance_Agent and Ethics_Compliance_Agent. Synthesize.",
+            "allow": { "from_upstream": { "messages": ["Chief_of_Staff"] }, "from_downstream": { "messages": ["Corporate_Compliance_Agent", "Ethics_Compliance_Agent"] } },
+            "tools": ["Corporate_Compliance_Agent", "Ethics_Compliance_Agent"]
+        },
+        {
+            "name": "IT_Auditor_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Auditor_Agent"] } }
+        },
+        {
+            "name": "Financial_Auditor_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Auditor_Agent"] } }
+        },
+        {
+            "name": "Procurement_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Finance_Risk_Agent"] } }
+        },
+        {
+            "name": "Audit_Compliance_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Finance_Risk_Agent"] } }
+        },
+        {
+            "name": "Expense_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Finance_Risk_Agent"] } }
+        },
+        {
+            "name": "Talent_Acquisition_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["HR_Safety_Agent"] } }
+        },
+        {
+            "name": "Onboarding_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["HR_Safety_Agent"] } }
+        },
+        {
+            "name": "Facilities_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["HR_Safety_Agent"] } }
+        },
+        {
+            "name": "DevOps_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["IT_Ops_Agent"] } }
+        },
+        {
+            "name": "Data_Governance_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["IT_Ops_Agent"] } }
+        },
+        {
+            "name": "Vendor_SaaS_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["IT_Ops_Agent"] } }
+        },
+        {
+            "name": "Sales_Ops_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Sales_Marketing_Agent"] } }
+        },
+        {
+            "name": "Marketing_Analytics_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Sales_Marketing_Agent"] } }
+        },
+        {
+            "name": "Partner_Ecosystem_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Sales_Marketing_Agent"] } }
+        },
+        {
+            "name": "Project_Auditor_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Projects_Agent"] } }
+        },
+        {
+            "name": "Project_QA_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Projects_Agent"] } }
+        },
+        {
+            "name": "Vendor_Risk_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Vendor_Agent"] } }
+        },
+        {
+            "name": "Sourcing_Sub_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Vendor_Agent"] } }
+        },
+        {
+            "name": "Logistics_Routing_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["SAP_SupplyChain_Agent"] } }
+        },
+        {
+            "name": "Inventory_Warehouse_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["SAP_SupplyChain_Agent"] } }
+        },
+        {
+            "name": "Threat_Intel_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Cyber_Security_Agent"] } }
+        },
+        {
+            "name": "Incident_Response_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Cyber_Security_Agent"] } }
+        },
+        {
+            "name": "Contracts_Litigation_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Legal_Agent"] } }
+        },
+        {
+            "name": "IP_Compliance_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Legal_Agent"] } }
+        },
+        {
+            "name": "Internal_Comms_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["PR_Comms_Agent"] } }
+        },
+        {
+            "name": "Media_Relations_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["PR_Comms_Agent"] } }
+        },
+        {
+            "name": "Sentiment_Analysis_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Social_Media_Agent"] } }
+        },
+        {
+            "name": "Brand_Safety_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Social_Media_Agent"] } }
+        },
+        {
+            "name": "VIP_Escalation_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Customer_Support_Agent"] } }
+        },
+        {
+            "name": "SLA_Monitoring_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Customer_Support_Agent"] } }
+        },
+        {
+            "name": "Corporate_Compliance_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Regulatory_Agent"] } }
+        },
+        {
+            "name": "Ethics_Compliance_Agent", "function": { "description": "Sub-agent", "parameters": { "type": "object", "properties": { "task": { "type": "string" } }, "required": ["task"] } }, "instructions": "Sub-agent execution.", "allow": { "from_upstream": { "messages": ["Regulatory_Agent"] } }
         }
     ]
 }

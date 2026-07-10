@@ -473,3 +473,80 @@ As the Chief Compliance Officer, I have evaluated the scenario regarding **INC24
     "total_tokens": 1143
 }
 ```
+
+[SYSTEM] @ 2026-07-10 18:37:13:
+You are the Chief Compliance Officer for Cognizant India. Identify all applicable Indian regulations and specify mandatory reporting timelines.
+
+[HUMAN] @ 2026-07-10 18:37:19:
+The task is 'Ensure that the delay in onboarding and physical access for new developers does not violate any local labor or data security compliance norms.'.
+
+[AI] @ 2026-07-10 18:37:44:
+As the Chief Compliance Officer for Cognizant India, I have categorized the potential risks regarding onboarding delays and physical access into **Labor Law Compliance** and **Data Security/Regulatory Compliance**.
+
+Below is the framework of applicable regulations and mandatory reporting/compliance timelines.
+
+---
+
+### 1. Labor & Employment Regulations
+Delays in onboarding can lead to constructive breach of employment contracts or violations of state-specific labor laws.
+
+*   **Applicable Regulations:**
+    *   **Industrial Employment (Standing Orders) Act, 1946:** Governs the terms of employment, including the formal date of joining and probation periods.
+    *   **State-Specific Shops and Establishments Acts:** Mandates the maintenance of employment registers and timely issuance of appointment letters.
+    *   **Contract Labour (Regulation and Abolition) Act, 1970:** Applicable if delays affect third-party contractors/managed services personnel.
+*   **Compliance Risks:** Failure to onboard within the stipulated timeline in the offer letter may lead to claims of "breach of contract" or "unfair labor practice."
+*   **Mandatory Reporting/Action:**
+    *   **Immediate:** Update the *Register of Employees* (Form under respective State Shops & Establishment Act) within 7 days of the actual joining date.
+    *   **PF/ESI:** Under the **EPF & MP Act, 1952**, employee data must be uploaded to the UAN portal within the month of joining to avoid interest and penalty on late contributions.
+
+---
+
+### 2. Data Security & Access Control
+Restricting physical access for developers must be balanced against the **Information Technology Act, 2000** and **Digital Personal Data Protection Act (DPDPA), 2023**.
+
+*   **Applicable Regulations:**
+    *   **DPDPA 2023:** Requires "Reasonable Security Practices" to prevent unauthorized access to personal data.
+    *   **IT (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011:** Mandates that only authorized personnel have access to sensitive information.
+*   **Compliance Risks:** If a developer is "onboarded" on paper but cannot access systems, they may resort to unauthorized workarounds (e.g., credential sharing), which is a critical audit failure.
+*   **Mandatory Reporting/Action:**
+    *   **Identity & Access Management (IAM) Audit:** Under **CERT-In Directions (2022)**, if an access delay results in a configuration error that exposes data, Cognizant must report the incident to CERT-In within **6 hours** of becoming aware of the incident.
+    *   **ISO/IEC 27001 Compliance:** As a global entity, Cognizant must maintain logs of physical/logical access. Any failure to provide access must be documented in the *Access Control Review* logs to demonstrate that "least privilege" was maintained during the delay.
+
+---
+
+### 3. Summary of Compliance Reporting Timelines
+
+| Regulation | Trigger Event | Reporting Timeline |
+| :--- | :--- | :--- |
+| **EPF/ESI Act** | New Hire Onboarding | By the 15th of the following month. |
+| **State Shops & Est. Act** | Change in Employee Status | Within 7 days of joining/change. |
+| **CERT-In (Cybersecurity)** | Data Breach due to access failure | Within 6 hours of discovery. |
+| **DPDPA 2023** | Personal Data Breach | "Without undue delay" (Specifics pending rules). |
+
+---
+
+### CCO Directives for Mitigation:
+
+1.  **Contractual Buffer:** Ensure all offer letters include a "Conditional Onboarding" clause, stating that the start date is subject to successful completion of background verification (BGV) and physical access provisioning.
+2.  **Documented Justification:** If an onboarding delay occurs, the HR/IT department must maintain a **Compliance Log** citing the specific reason (e.g., BGV delay, hardware shipment lag). This serves as evidence during statutory audits to prove the delay was not an act of discrimination or labor violation.
+3.  **Access Governance:** Ensure that "Physical Access Denied" status is automatically synced with "Logical Access Denied" in the Active Directory (AD) to prevent developers from attempting to bypass physical security via remote access tools, which would be a violation of our **Internal Data Security Policy**.
+
+**Recommendation:** If the delay exceeds 15 days from the original joining date, Legal must review the candidate’s offer letter to determine if a formal "Start Date Amendment" is required to avoid potential litigation under the Indian Contract Act, 1872.
+
+[AGENT] @ 2026-07-10 18:38:04:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 1007,
+    "empty_responses": 0,
+    "prompt_tokens": 52,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 33.61644148826599,
+    "total_cost": 0.0015235,
+    "total_tokens": 1059
+}
+```

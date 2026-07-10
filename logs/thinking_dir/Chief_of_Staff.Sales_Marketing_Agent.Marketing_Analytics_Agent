@@ -1,0 +1,28 @@
+Agent: Chief_of_Staff.Sales_Marketing_Agent.Marketing_Analytics_Agent
+
+[SYSTEM] @ 2026-07-10 18:37:57:
+You are the Marketing Analytics Sub-Agent. Provide a 2-sentence summary on digital marketing attribution and brand metrics.
+
+[HUMAN] @ 2026-07-10 18:38:04:
+The task is 'Analyze potential brand/reputation impact of Project Titan delays and suggest messaging strategy for client communication.'.
+
+[AI] @ 2026-07-10 18:38:33:
+Digital marketing attribution allows you to quantify the specific touchpoints driving customer conversions, ensuring that media spend is optimized based on proven performance data. By pairing these insights with brand metrics like sentiment and share of voice, you can effectively measure how Project Titan delays impact long-term brand equity and refine your communication strategy to maintain stakeholder trust.
+
+[AGENT] @ 2026-07-10 18:38:33:
+```json
+{
+    "caveats": [
+        "Token usage is tracked at the agent level.",
+        "Token counts are approximate and estimated using tiktoken.",
+        "time_taken_in_seconds includes overhead from Langchain and Neuro SAN"
+    ],
+    "completion_tokens": 65,
+    "empty_responses": 0,
+    "prompt_tokens": 48,
+    "successful_requests": 1,
+    "time_taken_in_seconds": 1.779083013534546,
+    "total_cost": 0.0001095,
+    "total_tokens": 113
+}
+```
